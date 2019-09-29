@@ -5,7 +5,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject player;
 
     Rigidbody rb;
-    private float movement = 1.0f;
+    private float movementFactor = 10.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class EnemyMovement : MonoBehaviour
         var enemyPosition = transform.position;
         var delta = playerPosition - enemyPosition;
         delta.y = 0;
-        rb.AddForce(delta * Time.deltaTime * movement, ForceMode.VelocityChange);
+        rb.AddForce(delta.normalized * Time.deltaTime * movementFactor, ForceMode.VelocityChange);
     }
 
     // Update is called once per frame

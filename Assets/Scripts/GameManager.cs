@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
     private static int score = 0;
+    private static float health = 100;
     private float lastEnemySpawnTime;
 
     public float enemySpawnTime = 1.0f;
@@ -29,6 +28,12 @@ public class GameManager : MonoBehaviour
         var scoreObj = GameObject.FindGameObjectWithTag("Score");
         var txt = scoreObj.GetComponent<Text>();
         txt.text = string.Format("Score: {0}", score);
+    }
+
+    public static void OnPlayerHit(float damage)
+    {
+        health -= damage;
+        // TODO: End game on 0
     }
 
     private void EnemySpawnLogic()
