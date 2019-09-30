@@ -26,12 +26,16 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //rb.velocity = new Vector3(0, rb.velocity.y, 0);
-
         if (transform.position.y < -5.0f)
-        {
             Destroy(this.gameObject);
-            GameManager.IncreaseScore();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == "Player")
+        {
+            var playerManager = other.collider.GetComponent<PlayerManager>();
+            playerManager.OnPlayerHit(0.25f);
         }
     }
 }

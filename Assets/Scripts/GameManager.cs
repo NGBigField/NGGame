@@ -4,11 +4,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    private static int score = 0;
-    private static float health = 100;
-    private float lastEnemySpawnTime;
 
     public float enemySpawnTime = 1.0f;
+    private float lastEnemySpawnTime;
 
     // Start is called before the first frame update
     void Start()
@@ -20,20 +18,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         EnemySpawnLogic();
-    }
-
-    public static void IncreaseScore()
-    {
-        ++score;
-        var scoreObj = GameObject.FindGameObjectWithTag("Score");
-        var txt = scoreObj.GetComponent<Text>();
-        txt.text = string.Format("Score: {0}", score);
-    }
-
-    public static void OnPlayerHit(float damage)
-    {
-        health -= damage;
-        // TODO: End game on 0
     }
 
     private void EnemySpawnLogic()
