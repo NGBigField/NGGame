@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Enemy
   - DamageBlink
+  - HealthBar
   layers:
   - Default
   - TransparentFX
