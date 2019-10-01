@@ -15,7 +15,7 @@ public class PlayerLogic : MonoBehaviour
     private bool isGrounded;
 
     private AudioSource audioSource;
-    private float fireAngle = 20f;
+    private float fireAngle = 15f;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +63,9 @@ public class PlayerLogic : MonoBehaviour
             Vector3 fireVec = Quaternion.AngleAxis(fireAngle, -sideVec) * (Camera.main.transform.forward);
 
             /* Create Bullet  */
-            var bullet = Instantiate(bulletPrefab, playerPosition + fireVec * 0.2f, Quaternion.identity);
+            //Trying to make bullet exit more realisticaly
+            //var bullet = Instantiate(bulletPrefab, playerPosition + fireVec * 0.2f, Quaternion.identity);
+            var bullet = Instantiate(bulletPrefab, playerPosition + Vector3.up * 0.8f, Quaternion.identity);
             var bulletRigidbody = bullet.GetComponent<Rigidbody>();
 
             /* Give Bullet Speed */
