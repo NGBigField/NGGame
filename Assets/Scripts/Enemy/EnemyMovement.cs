@@ -10,12 +10,13 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.isGameOver) return;
         var playerPosition = player.transform.position;
         var enemyPosition = transform.position;
         var delta = playerPosition - enemyPosition;
@@ -26,6 +27,8 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.isGameOver) return;
+
         if (transform.position.y < -5.0f)
             Destroy(this.gameObject);
     }

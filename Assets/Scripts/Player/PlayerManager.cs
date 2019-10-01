@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
 
     public HealthBar healthBar;
 
+
     private float health = 1.0f;
     private float score = 0.0f;
 
@@ -22,6 +23,8 @@ public class PlayerManager : MonoBehaviour
         StartCoroutine(BlinkScreen());
         this.health = Mathf.Max(0.0f, this.health - value);
         healthBar.SetValue(this.health);
+
+        if (health == 0.0f) GameManager.Instance.Endgame();
     }
 
     private IEnumerator BlinkScreen()

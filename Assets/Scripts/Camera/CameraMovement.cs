@@ -18,11 +18,13 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.isGameOver) return;
         transform.position = playerTransform.position + offset;
     }
 
     void LateUpdate()
     {
+        if (GameManager.Instance.isGameOver) return;
         var forwardVec = transform.forward;
         forwardVec.y = 0;
         var sideVec = Quaternion.AngleAxis(90, Vector3.up) * forwardVec;

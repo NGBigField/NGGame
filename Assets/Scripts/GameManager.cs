@@ -3,21 +3,26 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     public GameObject enemyPrefab;
 
     public float enemySpawnTime = 1.0f;
     private float lastEnemySpawnTime;
 
+    public bool isGameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        Instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        EnemySpawnLogic();
+        if (!isGameOver)
+            EnemySpawnLogic();
     }
 
     private void EnemySpawnLogic()
@@ -30,5 +35,13 @@ public class GameManager : MonoBehaviour
 
             lastEnemySpawnTime = 0;
         }
+    }
+
+    public void Endgame()
+    {
+        isGameOver = true;
+
+        var gameOverAnimator = GameObject.Find("GameOver").GetComponent<Animator>();
+        gameOverAnimator.SetBool("isGameOver", true);
     }
 }

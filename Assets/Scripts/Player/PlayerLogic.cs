@@ -2,6 +2,8 @@
 
 public class PlayerLogic : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public Rigidbody rb;
 
     public Vector3 forwardVec;
@@ -21,11 +23,14 @@ public class PlayerLogic : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameManager.isGameOver) return;
+
         MoveLogic();
         JumpLogic();
         FireLogic();
