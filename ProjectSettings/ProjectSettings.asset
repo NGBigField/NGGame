@@ -722,7 +722,7 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   cloudProjectId: 55e662f9-7804-4f5e-8cd6-532eede8037b
   framebufferDepthMemorylessMode: 0
-  projectName: EffectsExamples
+  projectName: NGGame
   organizationId: ngbigfield
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
