@@ -4,41 +4,44 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    public Image damageBlinkImage;
+    public PlayerCanvas playerCanvas;
 
-    public HealthBar healthBar;
+    public Vector3 startingPoint = new Vector3(0.0f, 9.25f, -12.0f);
 
-
-    private float health = 1.0f;
-    private float score = 0.0f;
+    public float health;
+    public float score;
 
     private void Start()
     {
-        var damageBlink = GameObject.FindGameObjectWithTag("DamageBlink");
-        damageBlinkImage = damageBlink.GetComponent<Image>();
+        RestartPlayer();
+    }
+
+    public void RestartPlayer()
+    {
+        health = 1.0f;
+        score = 0.0f;
+        transform.position = startingPoint;
+        playerCanvas.ShowCrosshair();
     }
 
     public void OnPlayerHit(float value)
     {
-        StartCoroutine(BlinkScreen());
+        playerCanvas.DoDamageBlink();
         this.health = Mathf.Max(0.0f, this.health - value);
-        healthBar.SetValue(this.health);
+        playerCanvas.setHealth(this.health);
 
-        if (health == 0.0f) GameManager.Instance.Endgame();
+        if (health == 0.0f) GameManager.Instance.Endgame(score);
     }
 
-    private IEnumerator BlinkScreen()
+    public void KillPlayer()
     {
-        var color = damageBlinkImage.color;
-        color.a = 0.9f;
-        damageBlinkImage.color = color;
-        yield return new WaitForSeconds(0.1f);
-        color.a = 0f;
-        damageBlinkImage.color = color;
+        health = 0.0f;
+        playerCanvas.HideCrosshair();
     }
 
     public void IncreaseScore(float value)
     {
         this.score += value;
+        playerCanvas.setScore(score);
     }
 }

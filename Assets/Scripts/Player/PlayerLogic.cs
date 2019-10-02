@@ -2,8 +2,6 @@
 
 public class PlayerLogic : MonoBehaviour
 {
-    public GameManager gameManager;
-
     public Rigidbody rb;
 
     public Vector3 forwardVec;
@@ -23,13 +21,12 @@ public class PlayerLogic : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.isGameOver) return;
+        if (GameManager.Instance.isGameOver) return;
 
         MoveLogic();
         JumpLogic();
@@ -47,6 +44,9 @@ public class PlayerLogic : MonoBehaviour
 
         rb.AddForce(forwardVec * force * Time.deltaTime * vertical, ForceMode.Impulse);
         rb.AddForce(sideVec * force * Time.deltaTime * horizontal, ForceMode.Impulse);
+
+        // If the player fell off the screen
+        if (transform.position.y < -5) GameManager.Instance.Endgame(GetComponent<PlayerManager>().score);
     }
 
     void JumpLogic()
@@ -82,6 +82,7 @@ public class PlayerLogic : MonoBehaviour
 
         }
     }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.tag == "Ground") isGrounded = true;

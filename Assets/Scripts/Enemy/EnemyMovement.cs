@@ -30,7 +30,10 @@ public class EnemyMovement : MonoBehaviour
         if (GameManager.Instance.isGameOver) return;
 
         if (transform.position.y < -5.0f)
+        {
             Destroy(this.gameObject);
+            player.GetComponent<PlayerManager>().IncreaseScore(1.0f);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
