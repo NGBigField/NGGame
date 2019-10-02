@@ -22,13 +22,15 @@ public class PlayerManager : MonoBehaviour
         score = 0.0f;
         transform.position = startingPoint;
         playerCanvas.ShowCrosshair();
+        playerCanvas.SetScore(0.0f);
+        playerCanvas.SetHealth(1.0f);
     }
 
     public void OnPlayerHit(float value)
     {
         playerCanvas.DoDamageBlink();
         this.health = Mathf.Max(0.0f, this.health - value);
-        playerCanvas.setHealth(this.health);
+        playerCanvas.SetHealth(this.health);
 
         if (health == 0.0f) GameManager.Instance.Endgame(score);
     }
@@ -51,6 +53,6 @@ public class PlayerManager : MonoBehaviour
     public void IncreaseScore(float value)
     {
         this.score += value;
-        playerCanvas.setScore(score);
+        playerCanvas.SetScore(score);
     }
 }

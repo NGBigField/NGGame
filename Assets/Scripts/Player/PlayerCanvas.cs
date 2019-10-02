@@ -21,12 +21,12 @@ public class PlayerCanvas : MonoBehaviour
         crosshair.alpha = 1.0f;
     }
 
-    public void setHealth(float value)
+    public void SetHealth(float value)
     {
         healthBar.SetValue(value);
     }
 
-    public void setScore(float value)
+    public void SetScore(float value)
     {
         scoreText.text = string.Format("Score: {0}", value);
     }
