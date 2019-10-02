@@ -54,14 +54,6 @@ public class GameManager : MonoBehaviour
             var playerManager = player.GetComponent<PlayerManager>();
             playerManager.KillPlayer();
         }
-
-        var gameOverObject = GameObject.Find("GameOver");
-
-        var gameOverScoreText = gameOverObject.transform.Find("GameoverScore").GetComponent<Text>();
-        gameOverScoreText.text = string.Format("YOUR SCORE IS {0}!", score);
-
-        var gameOverAnimator = gameOverObject.GetComponent<Animator>();
-        gameOverAnimator.SetBool("isGameOver", true);
     }
 
     public void RestartGame()

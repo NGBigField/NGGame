@@ -37,6 +37,15 @@ public class PlayerManager : MonoBehaviour
     {
         health = 0.0f;
         playerCanvas.HideCrosshair();
+
+        // Show the game over text
+        var gameOverObject = transform.Find("PlayerCanvas").Find("GameOver");
+
+        var gameOverScoreText = gameOverObject.transform.Find("GameoverScore").GetComponent<Text>();
+        gameOverScoreText.text = string.Format("YOUR SCORE IS {0}!", score);
+
+        var gameOverAnimator = gameOverObject.GetComponent<Animator>();
+        gameOverAnimator.SetBool("isGameOver", true);
     }
 
     public void IncreaseScore(float value)
