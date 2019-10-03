@@ -5,8 +5,9 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerCanvas playerCanvas;
+    public Rigidbody rb;
 
-    public Vector3 startingPoint = new Vector3(0.0f, 9.25f, -12.0f);
+    //public Vector3 startingPoint = new Vector3(0.0f, 10f, -80.0f);
 
     public float health;
     public float score;
@@ -18,9 +19,15 @@ public class PlayerManager : MonoBehaviour
 
     public void RestartPlayer()
     {
+        Vector3 startingPoint = new Vector3(0.0f, 10f, -8.0f);
         health = 1.0f;
         score = 0.0f;
         transform.position = startingPoint;
+
+        /*  Fixess a bug where the player maintain his previous speed after death */
+        rb.velocity = Vector3.zero;
+        rb.rotation = Quaternion.identity;
+
         playerCanvas.ShowCrosshair();
         playerCanvas.SetScore(0.0f);
         playerCanvas.SetHealth(1.0f);

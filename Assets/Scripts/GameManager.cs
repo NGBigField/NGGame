@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager Instance;
 
     public GameObject enemyPrefab;
 
-    public float enemySpawnTime = 1.0f;
     private float lastEnemySpawnTime;
 
     public bool isGameOver = false;
@@ -33,10 +33,11 @@ public class GameManager : MonoBehaviour
 
     private void EnemySpawnLogic()
     {
+        float enemySpawnTime = 3.0f;
         lastEnemySpawnTime += Time.deltaTime;
-        if (lastEnemySpawnTime >= 3.0f)
+        if (lastEnemySpawnTime >= enemySpawnTime)
         {
-            var randomPosition = new Vector3(Random.Range(-4f, 4f), 2f, Random.Range(3.5f, 4.5f));
+            var randomPosition = new Vector3(Random.Range(-4f, 4f), 2.5f, Random.Range(3.5f, 4.5f));
             Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
 
             lastEnemySpawnTime = 0;

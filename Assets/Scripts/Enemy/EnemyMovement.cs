@@ -5,13 +5,17 @@ public class EnemyMovement : MonoBehaviour
     public GameObject player;
 
     Rigidbody rb;
+    Transform EnemyTransform;
     private float movementFactor = 10.0f;
+    private float size;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
+        EnemyTransform = GetComponent<Transform>();
+        SpawnAnimation();
     }
 
     private void FixedUpdate()
@@ -27,6 +31,11 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*update size after spawn */
+        if (size < 1.0f) size += 0.02f;
+        EnemyTransform.localScale = new Vector3(size, size, size);
+
+
         if (GameManager.Instance.isGameOver) return;
 
         if (transform.position.y < -5.0f)
@@ -44,4 +53,16 @@ public class EnemyMovement : MonoBehaviour
             playerManager.OnPlayerHit(0.25f);
         }
     }
+
+    private void SpawnAnimation()
+    {
+        /*Sizing */
+        size = 0.02f;
+        EnemyTransform.localScale = new Vector3(size, size, size);
+
+        /*Spinning */
+        Vector3 Torque = Vector3.up;  //Just a powerful spin around the up axis
+        rb.AddTorque(Torque, ForceMode.Impulse);
+    }
+
 }
