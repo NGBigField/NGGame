@@ -10,6 +10,9 @@ public class PlayerLogic : MonoBehaviour
     public AudioClip explosionSound;
 
     public GameObject bulletPrefab;
+
+    public GameObject explosionPrefab;
+
     public float kickVelocityFactor = 2f;
     public float force = 20.0f;
     private float jumpVelocity = 6.7f;
@@ -90,19 +93,7 @@ public class PlayerLogic : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
-            audioSource.PlayOneShot(explosionSound);
-
-            var explosionForce = 80.0f;
-            var explosionRadius = 15.0f;
-
-            // go through each enemy, and add explosion force
-            var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-            foreach (var enemy in enemies)
-            {
-                var rigidBody = enemy.GetComponent<Rigidbody>();
-                rigidBody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-            }
+            Instantiate(explosionPrefab, playerPosition, Quaternion.identity);
         }
     }
 

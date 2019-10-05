@@ -1788,6 +1788,8 @@ MonoBehaviour:
   explosionSound: {fileID: 8300000, guid: f01c623f724825e44a923d1ae50256f2, type: 3}
   bulletPrefab: {fileID: 537597356750841749, guid: 13406ca2a03c6d2429ea56ffa3deb330,
     type: 3}
+  explosionPrefab: {fileID: 8700498035942592776, guid: 30d684d86e8909146ad562c5c4721389,
+    type: 3}
   kickVelocityFactor: 2
   force: 20
 --- !u!82 &1610466536
