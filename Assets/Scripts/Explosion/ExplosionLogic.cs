@@ -46,7 +46,7 @@ public class ExplosionLogic : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject, 3.0f);
+            Destroy(this.gameObject, 2.0f);
         }
 
     }
