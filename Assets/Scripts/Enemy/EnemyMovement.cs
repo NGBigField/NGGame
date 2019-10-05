@@ -6,6 +6,9 @@ public class EnemyMovement : MonoBehaviour
 
     Rigidbody rb;
     Transform EnemyTransform;
+
+    public float maxVelocity = 8.0f;
+
     private float movementFactor = 10.0f;
     private float size;
 
@@ -25,7 +28,11 @@ public class EnemyMovement : MonoBehaviour
         var enemyPosition = transform.position;
         var delta = playerPosition - enemyPosition;
         delta.y = 0;
-        rb.AddForce(delta.normalized * Time.deltaTime * movementFactor, ForceMode.VelocityChange);
+        float enemySpeed = rb.velocity.magnitude;
+
+        /*Update Force only if cube is not too fast */
+        if (enemySpeed < maxVelocity) rb.AddForce(delta.normalized * Time.deltaTime * movementFactor, ForceMode.VelocityChange);
+
     }
 
     // Update is called once per frame

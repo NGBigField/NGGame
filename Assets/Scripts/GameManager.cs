@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     private void EnemySpawnLogic()
     {
-        float enemySpawnTime = 3.0f;
+        float enemySpawnTime = 10.0f;
         lastEnemySpawnTime += Time.deltaTime;
         if (lastEnemySpawnTime >= enemySpawnTime)
         {

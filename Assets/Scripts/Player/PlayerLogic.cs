@@ -11,7 +11,7 @@ public class PlayerLogic : MonoBehaviour
     public GameObject bulletPrefab;
     public float kickVelocityFactor = 2f;
     public float force = 20.0f;
-    private float jumpVelocity = 5.0f;
+    private float jumpVelocity = 6.7f;
     private bool isGrounded;
 
     private AudioSource audioSource;
@@ -21,6 +21,7 @@ public class PlayerLogic : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
