@@ -7,6 +7,7 @@ public class PlayerLogic : MonoBehaviour
     public Vector3 forwardVec;
     public Vector3 sideVec;
     public AudioClip jumpSound;
+    public AudioClip explosionSound;
 
     public GameObject bulletPrefab;
     public float kickVelocityFactor = 2f;
@@ -32,6 +33,7 @@ public class PlayerLogic : MonoBehaviour
         MoveLogic();
         JumpLogic();
         FireLogic();
+        ExplosionLogic();
     }
 
     void MoveLogic()
@@ -79,8 +81,28 @@ public class PlayerLogic : MonoBehaviour
 
             // var fireVector = Camera.main.transform.forward;
             // fireVector.y = 0;
+        }
+    }
 
+    void ExplosionLogic()
+    {
+        var playerPosition = transform.position;
 
+        if (Input.GetButtonDown("Fire2"))
+        {
+            audioSource.PlayOneShot(explosionSound);
+
+            var explosionForce = 80.0f;
+            var explosionRadius = 15.0f;
+
+            // go through each enemy, and add explosion force
+            var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            foreach (var enemy in enemies)
+            {
+                var rigidBody = enemy.GetComponent<Rigidbody>();
+                rigidBody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            }
         }
     }
 
