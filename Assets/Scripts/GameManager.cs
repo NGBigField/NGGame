@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
         bool isSpawnEnemies = EnemyArea.GetComponent<EnemyAreaScript>().isSpawnEnemies();
         if (!isGameOver && isSpawnEnemies)
         {
-            spawnLogic(enemyPrefab   , EnemyArea , 5.0f , 3.0f);
-            //spawnLogic(powerupPrefab , EnemyArea , 5.0f , 5.0f);
+          //spawnLogic(spawnObject   ,spawnArea  , safeRadius, spawnDelay)
+            spawnLogic(powerupPrefab , EnemyArea , 8.0f , 2.0f);
+            spawnLogic(enemyPrefab   , EnemyArea , 9.0f , 1.0f);
         }
 
 
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour
 
     private void spawnLogic(GameObject spawnObject, GameObject spawnArea, float safeRadius, float spawnDelay)
     {
+        Debug.Log(spawnObject);
+
         lastSpawnTime += Time.deltaTime;
         if (lastSpawnTime >= spawnDelay)
         {
@@ -56,9 +59,10 @@ public class GameManager : MonoBehaviour
     //Finds a random position for spawning that allow for a safeRadius around player:
     private Vector3 getRandomPosition_recursive(GameObject spawnArea, float safeRadius)
     {
-        float x = Random.Range(spawnArea.transform.position.x - spawnArea.transform.lossyScale.x/2, spawnArea.transform.position.x + spawnArea.transform.lossyScale.x/2);
-        float y = Random.Range(spawnArea.transform.position.y - spawnArea.transform.lossyScale.y/2, spawnArea.transform.position.y + spawnArea.transform.lossyScale.y/2);
-        float z = Random.Range(spawnArea.transform.position.z - spawnArea.transform.lossyScale.z/2, spawnArea.transform.position.z + spawnArea.transform.lossyScale.z/2);
+        Debug.Log(spawnArea.transform.localScale);
+        float x = Random.Range(spawnArea.transform.position.x - spawnArea.transform.localScale.x/2, spawnArea.transform.position.x + spawnArea.transform.localScale.x/2 );
+        float y = spawnArea.transform.position.y + spawnArea.transform.localScale.y/2;
+        float z = Random.Range(spawnArea.transform.position.z - spawnArea.transform.localScale.z/2, spawnArea.transform.position.z + spawnArea.transform.localScale.z/2 );
 
         Vector3 result = new Vector3(x, y, z);
         Vector3 distance = result - GameObject.FindGameObjectWithTag("Player").transform.position;  //the distance between the random result vector and the player

@@ -4,9 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - enemyPrefab: {instanceID: 0}
-  - powerupPrefab: {fileID: 8344410936663697301, guid: 405df3b0d3b8e62498a6c3e69a0fe715,
+  - enemyPrefab: {fileID: 537597356750841749, guid: 13406ca2a03c6d2429ea56ffa3deb330,
       type: 3}
+  - powerupPrefab: {instanceID: 0}
   - EnemyArea: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
