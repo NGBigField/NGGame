@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - DamageBlink
   - HealthBar
+  - EnemyArea
   layers:
   - Default
   - TransparentFX

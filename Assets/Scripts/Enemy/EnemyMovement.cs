@@ -2,6 +2,7 @@
 
 public class EnemyMovement : MonoBehaviour
 {
+    private bool isAlive;
     public GameObject player;
 
     Rigidbody rb;
@@ -19,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         EnemyTransform = GetComponent<Transform>();
         SpawnAnimation();
+        this.isAlive = true;
     }
 
     private void FixedUpdate()
@@ -44,11 +46,15 @@ public class EnemyMovement : MonoBehaviour
 
         if (GameManager.Instance.isGameOver) return;
 
-        if (transform.position.y < -5.0f)
+        if (transform.position.y < -2.0f  && isAlive )
         {
-            Destroy(this.gameObject);
             player.GetComponent<PlayerManager>().IncreaseScore(1.0f);
+            this.isAlive = false;
         }
+
+        if (transform.position.y < -20.0f)
+            Destroy(this.gameObject);
+
     }
 
     private void OnCollisionEnter(Collision other)
@@ -67,7 +73,7 @@ public class EnemyMovement : MonoBehaviour
         EnemyTransform.localScale = new Vector3(size, size, size);
 
         /*Spinning */
-        Vector3 Torque = Vector3.up;  //Just a powerful spin around the up axis
+        Vector3 Torque = Vector3.up* 2000.0f;  //Just a powerful spin around the up axis
         rb.AddTorque(Torque, ForceMode.Impulse);
     }
 

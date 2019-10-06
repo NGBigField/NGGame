@@ -18,6 +18,6 @@ public class BulletLogic : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         //GameManager.IncreaseScore();
-        Destroy(gameObject, 4);
+        Destroy(gameObject, 10);
     }
 }

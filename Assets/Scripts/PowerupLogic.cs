@@ -4,6 +4,16 @@ public class PowerupLogic : MonoBehaviour
 {
     public AudioClip pickupSound;
 
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -15,7 +25,7 @@ public class PowerupLogic : MonoBehaviour
 
             var animator = GetComponentInParent<Animator>();
             animator.SetBool("isDissolve", true);
-            Destroy(gameObject, (35f / 60f));
+            Destroy(this.gameObject, (35f / 60f));
         }
     }
 }
