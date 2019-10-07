@@ -30,6 +30,8 @@ public class EnemyAreaScript : MonoBehaviour
     public void restartGame()
     {
         _isSpawnEnemies = false;
+        Destroy(enemySpawner);
+        Destroy(powerupSpawner);
     }
 
     void OnTriggerEnter(Collider other)
@@ -41,8 +43,8 @@ public class EnemyAreaScript : MonoBehaviour
             enemySpawner   =  gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
             powerupSpawner =  gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
 
-            enemySpawner.set(  ref enemyPrefab   ,ref EnemyArea , 8.0f , 1.5f);
-            powerupSpawner.set(ref powerupPrefab ,ref EnemyArea , 5.0f , 12.0f);
+            enemySpawner.set(  ref enemyPrefab   ,ref EnemyArea , 8.0f , 1.25f);
+            powerupSpawner.set(ref powerupPrefab ,ref EnemyArea , 5.0f , 22.0f);
 
 
             _isSpawnEnemies = true; //stop making more spawning Objects

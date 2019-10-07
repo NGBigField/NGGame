@@ -20,12 +20,19 @@ public class PowerupLogic : MonoBehaviour
         {
             var player = other;
 
-            var audioSource = GetComponentInParent<AudioSource>();
-            audioSource.PlayOneShot(pickupSound);
+            if (player.GetComponent<PlayerLogic>().powerupsInv.numExplosions < 1)
+            {
+                var audioSource = GetComponentInParent<AudioSource>();
+                audioSource.PlayOneShot(pickupSound);
 
-            var animator = GetComponentInParent<Animator>();
-            animator.SetBool("isDissolve", true);
-            Destroy(this.gameObject, (35f / 60f));
+                var animator = GetComponentInParent<Animator>();
+                animator.SetBool("isDissolve", true);
+                Destroy(this.gameObject, (35f / 60f));
+
+                //update number of powerups
+                player.GetComponent<PlayerLogic>().powerupsInv.numExplosions++;
+            }
         }
+
     }
 }

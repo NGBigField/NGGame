@@ -2,8 +2,9 @@
 
 public class PlayerLogic : MonoBehaviour
 {
+    public PowerupInventory powerupsInv;
     public Rigidbody rb;
-
+    public Vector3 fireVec;
     public Vector3 forwardVec;
     public Vector3 sideVec;
     public AudioClip jumpSound;
@@ -26,6 +27,9 @@ public class PlayerLogic : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         Cursor.visible = false;
+
+        powerupsInv = new PowerupInventory();
+
     }
 
     // Update is called once per frame
@@ -69,31 +73,30 @@ public class PlayerLogic : MonoBehaviour
     {
         var playerPosition = this.transform.position;
 
+        fireVec = Quaternion.AngleAxis(fireAngle, -sideVec) * (Camera.main.transform.forward); //update this no-matter if fires, so other scripts can use it
+
         if (Input.GetButtonDown("Fire1"))
         {
-            Vector3 fireVec = Quaternion.AngleAxis(fireAngle, -sideVec) * (Camera.main.transform.forward);
 
             /* Create Bullet  */
-            //Trying to make bullet exit more realisticaly
-            //var bullet = Instantiate(bulletPrefab, playerPosition + fireVec * 0.2f, Quaternion.identity);
-            var bullet = Instantiate(bulletPrefab, playerPosition + Vector3.up * 0.8f, Quaternion.identity);
+            var bullet = Instantiate(bulletPrefab, playerPosition + Vector3.up * 0.8f, Quaternion.identity); //Trying to make bullet exit more realisticaly
             var bulletRigidbody = bullet.GetComponent<Rigidbody>();
 
             /* Give Bullet Speed */
             bulletRigidbody.AddForce(fireVec * kickVelocityFactor, ForceMode.Impulse);
 
-            // var fireVector = Camera.main.transform.forward;
-            // fireVector.y = 0;
         }
     }
 
     void ExplosionLogic()
     {
         var playerPosition = transform.position;
+        GameObject player = gameObject;
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && player.GetComponent<PlayerLogic>().powerupsInv.numExplosions > 0 )
         {
             Instantiate(explosionPrefab, playerPosition, Quaternion.identity);
+            player.GetComponent<PlayerLogic>().powerupsInv.numExplosions--; //update number of explosions
         }
     }
 
@@ -106,4 +109,11 @@ public class PlayerLogic : MonoBehaviour
     {
         if (other.collider.tag == "Ground") isGrounded = false;
     }
+}
+
+
+public class PowerupInventory
+{
+    public int numExplosions = 0;
+
 }
