@@ -20,8 +20,6 @@ public class spawnObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_spawnObject);
-
         _lastSpawnTime += Time.deltaTime;
         if (_lastSpawnTime >= _spawnDelay)
         {
