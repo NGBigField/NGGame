@@ -20,7 +20,8 @@ public class PowerupLogic : MonoBehaviour
         {
             var player = other;
 
-            if (player.GetComponent<PlayerLogic>().powerupsInv.numExplosions < 1)
+            bool isPickedUp = player.GetComponent<PlayerManager>().PickupPowerup(); //also let's player manage the logic of what to do
+            if (isPickedUp)
             {
                 var audioSource = GetComponentInParent<AudioSource>();
                 audioSource.PlayOneShot(pickupSound);
@@ -28,9 +29,6 @@ public class PowerupLogic : MonoBehaviour
                 var animator = GetComponentInParent<Animator>();
                 animator.SetBool("isDissolve", true);
                 Destroy(this.gameObject, (35f / 60f));
-
-                //update number of powerups
-                player.GetComponent<PlayerLogic>().powerupsInv.numExplosions++;
             }
         }
 

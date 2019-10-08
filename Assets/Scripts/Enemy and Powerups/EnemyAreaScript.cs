@@ -38,8 +38,6 @@ public class EnemyAreaScript : MonoBehaviour
     {
         if (_isSpawnEnemies == false && other.tag == "Player") //On first land
         {
-            Debug.Log("Creating Spawners");
-
             enemySpawner   =  gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
             powerupSpawner =  gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
 

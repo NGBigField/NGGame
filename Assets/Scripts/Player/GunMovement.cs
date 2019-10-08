@@ -3,11 +3,12 @@
 public class GunMovement : MonoBehaviour
 {
     public PlayerControl playerControl;
-    public GameObject gun;
+    private GameObject gun;
     private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        gun=gameObject; //gameObject = the GameObject this script is attached to
         player = gun.transform.parent.gameObject;
     }
 

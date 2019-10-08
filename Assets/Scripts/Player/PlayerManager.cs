@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
+    public PowerupInventory powerupsInv;
     public PlayerCanvas playerCanvas;
     public Rigidbody rb;
 
@@ -15,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         RestartPlayer();
+        powerupsInv = new PowerupInventory();
     }
 
     public void RestartPlayer()
@@ -33,6 +35,25 @@ public class PlayerManager : MonoBehaviour
         playerCanvas.SetHealth(1.0f);
     }
 
+
+    //optional type of powerup  //returns true if player picked it up
+    public bool PickupPowerup()
+    {
+        if (powerupsInv.numExplosions < 1)
+        {
+            //update number of powerups
+            powerupsInv.numExplosions++;
+            playerCanvas.SetNumExplosionIcons(1);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+
     public void OnPlayerHit(float value)
     {
         playerCanvas.DoDamageBlink();
@@ -44,6 +65,8 @@ public class PlayerManager : MonoBehaviour
 
     public void KillPlayer()
     {
+        powerupsInv.resetInventory();
+
         health = 0.0f;
         playerCanvas.HideCrosshair();
 
@@ -61,5 +84,53 @@ public class PlayerManager : MonoBehaviour
     {
         this.score += value;
         playerCanvas.SetScore(score);
+    }
+}
+
+public class PowerupInventory
+{
+    public int numExplosions = 0;
+
+    public void resetInventory()
+    {
+        numExplosions = 0 ;
+    }
+}
+
+
+public class Powerup : MonoBehaviour
+{
+    public string _name;
+    protected int _num;
+
+    public GameObject _player;
+
+    public void reset(){ _num = 0 ;}
+
+    public void setPlayer(ref GameObject player) { this._player = player;}
+
+    protected virtual void updateCanvas(){}  //depand on which powerup;
+
+
+    public static Powerup  operator ++(Powerup x)
+    {
+        x._num++;
+        x.updateCanvas();
+        return x;
+    }
+
+    public static Powerup  operator --(Powerup x)
+    {
+        x._num--;
+        x.updateCanvas();
+        return x;
+    }
+}
+
+public class ExplosionPowerup : Powerup
+{
+    protected override void updateCanvas()
+    {
+        _player.GetComponentInChildren<PlayerCanvas>().SetNumExplosionIcons(_num);
     }
 }

@@ -3,13 +3,13 @@
 public class PlayerLogic : MonoBehaviour
 {
     public PlayerControl playerControl;
+    public PlayerCanvas playerCanvas;
 
-    public PowerupInventory powerupsInv;
 
     // Start is called before the first frame update
     void Start()
     {
-        powerupsInv = new PowerupInventory();
+        
     }
 
     // Update is called once per frame
@@ -55,7 +55,3 @@ public class PlayerLogic : MonoBehaviour
 }
 
 
-public class PowerupInventory
-{
-    public int numExplosions = 0;
-}

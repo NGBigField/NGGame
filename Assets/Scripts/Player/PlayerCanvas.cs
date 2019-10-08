@@ -10,6 +10,7 @@ public class PlayerCanvas : MonoBehaviour
     public Text scoreText;
 
     public HealthBar healthBar;
+    public ExplosionIcon explosionIcon;
 
     public void HideCrosshair()
     {
@@ -19,6 +20,18 @@ public class PlayerCanvas : MonoBehaviour
     public void ShowCrosshair()
     {
         crosshair.alpha = 1.0f;
+    }
+
+    public void SetNumExplosionIcons(int value)  //Maybe later we'll add more explosions?
+    {
+        if (value > 0)
+        {
+            explosionIcon.setVisible(true);
+        }
+        else
+        {
+            explosionIcon.setVisible(false);
+        }
     }
 
     public void SetHealth(float value)

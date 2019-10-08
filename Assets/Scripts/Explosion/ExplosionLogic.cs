@@ -10,8 +10,9 @@ public class ExplosionLogic : MonoBehaviour
     private float alphaValueInc = 0.025f;
 
     private float explosionForce = 80.0f;
-    private float explosionRadius = 15.0f;
-    private float explosionInc = 1f;
+    private float explosionRadiusFinal = 15.0f;
+    private float explosionRadiusInc = 1f;
+    private float explosionLifeTime = 1.4f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,20 +23,20 @@ public class ExplosionLogic : MonoBehaviour
         foreach (var enemy in enemies)
         {
             var rigidBody = enemy.GetComponent<Rigidbody>();
-            rigidBody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            rigidBody.AddExplosionForce(explosionForce, transform.position, explosionRadiusFinal);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.localScale.x < explosionRadius)
+        if (this.transform.localScale.x < explosionRadiusFinal)
         {
             this.transform.localScale =
             new Vector3(
-                this.transform.localScale.x + explosionInc,
+                this.transform.localScale.x + explosionRadiusInc,
                 this.transform.localScale.y,
-                this.transform.localScale.z + explosionInc
+                this.transform.localScale.z + explosionRadiusInc
                  );
 
             var color = meshRenderer.material.color;
@@ -46,7 +47,7 @@ public class ExplosionLogic : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject, 1.6f);
+            Destroy(this.gameObject, explosionLifeTime);
         }
 
     }

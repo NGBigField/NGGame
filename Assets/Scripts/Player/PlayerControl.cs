@@ -73,7 +73,7 @@ public class PlayerControl : MonoBehaviour
     public void UsePowerup() // TODO: << Add param, don't always use explosion
     {
         // TODO: There is a better way of doing this
-        var powerUpsInventory = GetComponent<PlayerLogic>().powerupsInv;
+        var powerUpsInventory = GetComponent<PlayerManager>().powerupsInv;
 
         if (powerUpsInventory.numExplosions > 0)
         {
