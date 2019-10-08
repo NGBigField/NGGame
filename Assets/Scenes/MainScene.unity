@@ -2001,7 +2001,6 @@ GameObject:
   - component: {fileID: 1610466535}
   - component: {fileID: 1610466534}
   - component: {fileID: 1610466537}
-  - component: {fileID: 1610466538}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2112,6 +2111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1cd86ad70f8484b95977e3b942a8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerupsInv: {fileID: 0}
   playerCanvas: {fileID: 700024682}
   rb: {fileID: 1610466533}
   health: 0
@@ -2250,18 +2250,6 @@ MonoBehaviour:
     type: 3}
   kickVelocityFactor: 2
   force: 20
---- !u!114 &1610466538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610466528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c79c6b2adf272840970b9049824d434, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1682204466
 GameObject:
   m_ObjectHideFlags: 0

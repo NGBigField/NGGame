@@ -63,7 +63,7 @@ public class PlayerControl : MonoBehaviour
     public void Fire()
     {
         /* Create Bullet  */
-        var bullet = Instantiate(bulletPrefab, transform.position + Vector3.up * 0.8f, Quaternion.identity); //Trying to make bullet exit more realisticaly
+        var bullet = Instantiate(bulletPrefab, transform.position + Vector3.up * 0.8f, Quaternion.identity);
         var bulletRigidbody = bullet.GetComponent<Rigidbody>();
 
         /* Give Bullet Speed */
@@ -75,10 +75,10 @@ public class PlayerControl : MonoBehaviour
         // TODO: There is a better way of doing this
         var powerUpsInventory = GetComponent<PlayerManager>().powerupsInv;
 
-        if (powerUpsInventory.numExplosions > 0)
+        if (powerUpsInventory.explosions.getNum() > 0)
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            powerUpsInventory.numExplosions--; //update number of explosions
+            powerUpsInventory.explosions.decrement();
         }
 
     }

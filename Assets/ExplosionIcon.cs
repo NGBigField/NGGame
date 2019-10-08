@@ -23,11 +23,11 @@ public class ExplosionIcon : MonoBehaviour
     {
         if (isVisible)
         {
-            icon.transform.localScale = new Vector3(0, 0, 0);
+            icon.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
-            icon.transform.localScale = new Vector3(1, 1, 1);
+            icon.transform.localScale = new Vector3(0, 0, 0);
         }
     }
 
