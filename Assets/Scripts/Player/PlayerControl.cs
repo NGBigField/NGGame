@@ -72,14 +72,13 @@ public class PlayerControl : MonoBehaviour
 
     public void UsePowerup() // TODO: << Add param, don't always use explosion
     {
-        // TODO: There is a better way of doing this
-        var powerUpsInventory = GetComponent<PlayerManager>().powerupsInv;
+        // // TODO: There is a better way of doing this
+        var inventory = GetComponent<Inventory>();
 
-        if (powerUpsInventory.explosions.getNum() > 0)
-        {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            powerUpsInventory.explosions.decrement();
-        }
+        // If there is anythiung in the inventory, use it
+        // TODO: Shouldn't be the first item, make it more generic
+        if (inventory.items.Count > 0) inventory.items[0].Use();
+
 
     }
 

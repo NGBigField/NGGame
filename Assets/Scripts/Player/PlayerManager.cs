@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    public PowerupsInventory powerupsInv ;
+    public Inventory inventory;
     public PlayerCanvas playerCanvas;
     public Rigidbody rb;
 
@@ -16,9 +16,6 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         RestartPlayer();
-
-        powerupsInv= gameObject.AddComponent(typeof(PowerupsInventory)) as PowerupsInventory;
-        powerupsInv.set(ref playerCanvas);
     }
 
     public void RestartPlayer()
@@ -37,25 +34,6 @@ public class PlayerManager : MonoBehaviour
         playerCanvas.SetHealth(1.0f);
     }
 
-
-    //optional type of powerup  //returns true if player picked it up
-    public bool PickupPowerup()
-    {
-        if (powerupsInv.explosions.getNum() < 1)
-        {
-            //update number of powerups
-            powerupsInv.explosions.increment();
-            playerCanvas.SetNumExplosionIcons(1);
-            return true;
-        }
-        else
-        {
-            return false; //can't pick up powerup. Send answer to Pickup object
-        }
-    }
-
-
-
     public void OnPlayerHit(float value)
     {
         playerCanvas.DoDamageBlink();
@@ -67,7 +45,7 @@ public class PlayerManager : MonoBehaviour
 
     public void KillPlayer()
     {
-        powerupsInv.reset();
+        inventory.Reset();
 
         health = 0.0f;
         playerCanvas.HideCrosshair();

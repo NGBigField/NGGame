@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
         EnemyTransform = GetComponent<Transform>();
         SpawnAnimation();
@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (GameManager.Instance.isGameOver) return;
 
-        if (transform.position.y < -2.0f  && isAlive )
+        if (transform.position.y < -2.0f && isAlive)
         {
             player.GetComponent<PlayerManager>().IncreaseScore(1.0f);
             this.isAlive = false;
@@ -73,7 +73,7 @@ public class EnemyMovement : MonoBehaviour
         EnemyTransform.localScale = new Vector3(size, size, size);
 
         /*Spinning */
-        Vector3 Torque = Vector3.up* 2000.0f;  //Just a powerful spin around the up axis
+        Vector3 Torque = Vector3.up * 2000.0f;  //Just a powerful spin around the up axis
         rb.AddTorque(Torque, ForceMode.Impulse);
     }
 
