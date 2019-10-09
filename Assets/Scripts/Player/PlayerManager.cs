@@ -50,6 +50,8 @@ public class PlayerManager : MonoBehaviour
         health = 0.0f;
         playerCanvas.HideCrosshair();
 
+        // TODO: Hide touch controls
+
         // Show the game over text
         var gameOverObject = transform.parent.Find("PlayerCanvas").Find("GameOver");
 

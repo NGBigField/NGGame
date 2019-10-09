@@ -2371,6 +2371,7 @@ GameObject:
   - component: {fileID: 1838262225}
   - component: {fileID: 1838262227}
   - component: {fileID: 1838262226}
+  - component: {fileID: 1838262228}
   m_Layer: 5
   m_Name: Touch Controls
   m_TagString: Untagged
@@ -2447,6 +2448,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838262223}
   m_CullTransparentMesh: 0
+--- !u!225 &1838262228
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838262223}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1947278251
 GameObject:
   m_ObjectHideFlags: 0
