@@ -1,30 +1,27 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TouchControls : MonoBehaviour
+public class TouchControls : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     public CameraMovement cameraMovement;
     public float movementSensitivity = 0.1f;
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        MoveCameraLogic();
+        OnDrag(eventData);
     }
 
-    /**
-Moves the camera according  */
-    void MoveCameraLogic()
+    public void OnDrag(PointerEventData eventData)
     {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved)
-            {
-                // Get movement of the finger since last frame
-                var touchDeltaPosition = touch.deltaPosition * movementSensitivity;
-                cameraMovement.MoveCamera(touchDeltaPosition.x, touchDeltaPosition.y);
-            }
+        // Get movement of the finger since last frame
+        var touchDeltaPosition = eventData.delta * movementSensitivity;
 
-        }
+        // Move the camera accordingly
+        cameraMovement.MoveCamera(touchDeltaPosition.x, touchDeltaPosition.y);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+
     }
 }

@@ -12,13 +12,6 @@ public class Inventory : MonoBehaviour
         // Destory all of the items added
         foreach (var item in items)
             Destroy(item);
-
-        items.Clear();
-    }
-
-    private void Start()
-    {
-
     }
 
     public BaseInventoryItem AddItem(System.Type itemType)

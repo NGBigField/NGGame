@@ -51,7 +51,7 @@ public class PlayerManager : MonoBehaviour
         playerCanvas.HideCrosshair();
 
         // Show the game over text
-        var gameOverObject = transform.Find("PlayerCanvas").Find("GameOver");
+        var gameOverObject = transform.parent.Find("PlayerCanvas").Find("GameOver");
 
         var gameOverScoreText = gameOverObject.transform.Find("GameoverScore").GetComponent<Text>();
         gameOverScoreText.text = string.Format("YOUR SCORE IS {0}!", score);
