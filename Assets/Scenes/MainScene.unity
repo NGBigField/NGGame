@@ -746,7 +746,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 700024681}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1178,10 +1178,10 @@ RectTransform:
   - {fileID: 2077908602}
   - {fileID: 2072180611}
   - {fileID: 2098999221}
-  - {fileID: 1431453222}
   - {fileID: 1248255911}
   - {fileID: 522745565}
   - {fileID: 1838262224}
+  - {fileID: 1431453222}
   m_Father: {fileID: 360303509}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1709,7 +1709,7 @@ PrefabInstance:
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 72
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -1838,7 +1838,7 @@ RectTransform:
   - {fileID: 1510681079}
   - {fileID: 1402522360}
   m_Father: {fileID: 700024681}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2202,7 +2202,7 @@ RectTransform:
   - {fileID: 697058464}
   - {fileID: 2015252975}
   m_Father: {fileID: 700024681}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2219,7 +2219,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!95 &1431453224
 Animator:
@@ -2942,7 +2942,7 @@ RectTransform:
   - {fileID: 356187896}
   - {fileID: 454033318}
   m_Father: {fileID: 700024681}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3407,10 +3407,10 @@ RectTransform:
   m_Father: {fileID: 700024681}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 418.69775, y: 41.600098}
-  m_SizeDelta: {x: 800, y: 30}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 7.5, y: -40}
+  m_SizeDelta: {x: -15, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2077908603
 MonoBehaviour:
@@ -3434,7 +3434,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2

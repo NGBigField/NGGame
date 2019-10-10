@@ -28,11 +28,6 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
-
-#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX // Only hide cursor on desktop
-        Cursor.visible = false;
-#endif
     }
 
     public void Move(float horizontal, float vertical)

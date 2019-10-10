@@ -6,6 +6,11 @@ public class TouchControls : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     public CameraMovement cameraMovement;
     public float movementSensitivity = 0.1f;
 
+    private void Start()
+    {
+
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
