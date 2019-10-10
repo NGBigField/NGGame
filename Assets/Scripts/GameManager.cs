@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
@@ -15,7 +14,7 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        // If the game has ended and the user is pressing any key
+        // If the game has ended and the user is pressing any key or touching the screen
         if (isGameOver && ((Input.anyKeyDown || Input.touchCount > 0) && (Time.time - gameOverTime) > 2.0f)) // Wait at least 2 seconds before restarting the game show the game over animation
             RestartGame ();
     }
