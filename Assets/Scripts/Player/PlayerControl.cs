@@ -1,11 +1,9 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
-/**
-Contains main player control methods like movement, fire, and secondary fire.
- */
-public class PlayerControl : MonoBehaviour
-{
+/// <summary>
+/// Contains main player control methods like movement, fire, and secondary fire.
+/// </summary>
+public class PlayerControl : MonoBehaviour {
     public Rigidbody rb;
     public Vector3 fireVec;
     public Vector3 forwardVec;
@@ -25,65 +23,56 @@ public class PlayerControl : MonoBehaviour
     private AudioSource audioSource;
     private float fireAngle = 15f;
 
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
+    void Start () {
+        audioSource = GetComponent<AudioSource> ();
     }
 
-    public void Move(float horizontal, float vertical)
-    {
+    public void Move (float horizontal, float vertical) {
         forwardVec = Camera.main.transform.forward;
         forwardVec.y = 0;
-        sideVec = Quaternion.AngleAxis(90, Vector3.up) * forwardVec;
+        sideVec = Quaternion.AngleAxis (90, Vector3.up) * forwardVec;
 
-        rb.AddForce(forwardVec * force * Time.deltaTime * vertical, ForceMode.Impulse);
-        rb.AddForce(sideVec * force * Time.deltaTime * horizontal, ForceMode.Impulse);
+        rb.AddForce (forwardVec * force * Time.deltaTime * vertical, ForceMode.Impulse);
+        rb.AddForce (sideVec * force * Time.deltaTime * horizontal, ForceMode.Impulse);
     }
 
-    public void Jump()
-    {
-        if (isGrounded)
-        {
-            audioSource.PlayOneShot(jumpSound);
-            rb.AddForce(Vector3.up * jumpVelocity, ForceMode.VelocityChange);
+    public void Jump () {
+        if (isGrounded) {
+            audioSource.PlayOneShot (jumpSound);
+            rb.AddForce (Vector3.up * jumpVelocity, ForceMode.VelocityChange);
         }
     }
 
-    public void UpdateFireCrosshair()
-    {
+    public void UpdateFireCrosshair () {
         var playerPosition = this.transform.position;
-        fireVec = Quaternion.AngleAxis(fireAngle, -sideVec) * (Camera.main.transform.forward); //update this no-matter if fires, so other scripts can use it
+        fireVec = Quaternion.AngleAxis (fireAngle, -sideVec) * (Camera.main.transform.forward); //update this no-matter if fires, so other scripts can use it
     }
 
-    public void Fire()
-    {
+    public void Fire () {
         /* Create Bullet  */
-        var bullet = Instantiate(bulletPrefab, transform.position + Vector3.up * 0.8f, Quaternion.identity);
-        var bulletRigidbody = bullet.GetComponent<Rigidbody>();
+        var bullet = Instantiate (bulletPrefab, transform.position + Vector3.up * 0.8f, Quaternion.identity);
+        var bulletRigidbody = bullet.GetComponent<Rigidbody> ();
 
         /* Give Bullet Speed */
-        bulletRigidbody.AddForce(fireVec * kickVelocityFactor, ForceMode.Impulse);
+        bulletRigidbody.AddForce (fireVec * kickVelocityFactor, ForceMode.Impulse);
     }
 
-    public void UsePowerup() // TODO: << Add param, don't always use explosion
+    public void UsePowerup () // TODO: << Add param, don't always use explosion
     {
         // // TODO: There is a better way of doing this
-        var inventory = GetComponent<Inventory>();
+        var inventory = GetComponent<Inventory> ();
 
         // If there is anythiung in the inventory, use it
         // TODO: Shouldn't be the first item, make it more generic
-        if (inventory.items.Count > 0) inventory.items[0].Use();
-
+        if (inventory.items.Count > 0) inventory.items[0].Use ();
 
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
+    private void OnCollisionEnter (Collision other) {
         if (other.collider.tag == "Ground") isGrounded = true;
     }
 
-    private void OnCollisionExit(Collision other)
-    {
+    private void OnCollisionExit (Collision other) {
         if (other.collider.tag == "Ground") isGrounded = false;
     }
 }
