@@ -1,9 +1,7 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 
-/// <summary>
-/// This script moves the camera according to the device gyroscope sensor, if available.
-/// </summary>
-public class GyroControl : MonoBehaviour {
+public class CameraGyroControl : MonoBehaviour {
     private bool gyroEnabled;
     private Gyroscope gyro;
     private Quaternion rot;
