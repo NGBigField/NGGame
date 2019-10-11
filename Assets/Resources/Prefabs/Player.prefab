@@ -1933,6 +1933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af64a855e767b7346981e4343b419f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 5450688329181935728}
+  offset: {x: 0, y: 2, z: -4}
 --- !u!114 &5450688330257798854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1940,7 +1942,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5450688330257798874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 838e8dea13d5119439ab7665039def75, type: 3}
   m_Name: 
