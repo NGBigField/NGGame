@@ -34,13 +34,11 @@ public class ExplosionLogic : MonoBehaviour {
                     this.transform.localScale.z + explosionRadiusInc
                 );
 
-            // var color = meshRenderer.material.color;
-            // if (alphaValue > 0.0f) alphaValue -= alphaValueInc;
-            // color.a = alphaValue;
+            if (alphaValue > 0.0f) alphaValue -= alphaValueInc;
+            meshRenderer.material.SetFloat ("_Opacity", alphaValue);
 
-            // meshRenderer.material.color = color;
         } else {
-            // Destroy (this.gameObject, explosionLifeTime);
+            Destroy (this.gameObject, explosionLifeTime);
         }
 
     }
