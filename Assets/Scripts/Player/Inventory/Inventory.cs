@@ -17,13 +17,35 @@ public class Inventory : MonoBehaviour
         items.Clear();
     }
 
-    public BaseInventoryItem AddItem(System.Type itemType)
+    public bool AddItem(System.Type itemType)
     {
+        if (GetItemByType(itemType)) return false;// there is a powerup of same type
+
         var item = (BaseInventoryItem)gameObject.AddComponent(itemType);
         items.Add(item);
-        return item;
+        return true;
     }
 
+
+
+    /// <summary>
+    /// Returns the first item of a specific type
+    /// </summary>
+    /// <param name="itemType"></param>
+    /// <returns></returns>
+    public BaseInventoryItem GetItemByType(System.Type itemType)
+    {
+        foreach (BaseInventoryItem item in items)
+            if (itemType == item.GetType()) return item;
+
+        return null;
+    }
+
+    /// <summary>
+    /// Returns the first item of a specific name
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
     public BaseInventoryItem GetItemByName(string name)
     {
         foreach (var item in items)

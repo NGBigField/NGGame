@@ -10,14 +10,15 @@ public class PowerupLogic : GameEntity
         {
             var player = other;
             var playerInventory = player.GetComponent<Inventory>();
-
             var audioSource = GetComponentInParent<AudioSource>();
-            audioSource.PlayOneShot(pickupSound);
 
-            // TODO: Instantiate a generic powerup instead of an explosion
-            playerInventory.AddItem(typeof(ExplosionPowerup));
-            animator.SetBool("isDissolve", true);
-            Destroy(this.gameObject, (35f / 60f));
+            /*Collect that item only if playerInventory allowes it */
+            if (playerInventory.AddItem(typeof(ExplosionPowerup))) //Successfully added that item
+            {
+                animator.SetBool("isDissolve", true);
+                audioSource.PlayOneShot(pickupSound);
+                Destroy(this.gameObject, (35f / 60f));
+            }
         }
     }
 }

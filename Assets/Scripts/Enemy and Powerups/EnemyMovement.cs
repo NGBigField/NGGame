@@ -35,7 +35,12 @@ public class EnemyMovement : MonoBehaviour
         float enemySpeed = rb.velocity.magnitude;
 
         /* Update Force only if cube is not too fast */
-        if (enemySpeed < maxVelocity) rb.AddForce(delta.normalized * Time.deltaTime * movementFactor, ForceMode.VelocityChange);
+        if (enemySpeed < maxVelocity)
+        {
+            Vector3 newForce = delta.normalized * Time.deltaTime * movementFactor;
+            newForce.y = 0; //Enemies can't fly towards you!
+            rb.AddForce(newForce, ForceMode.VelocityChange);
+        }
     }
 
     // Update is called once per frame
