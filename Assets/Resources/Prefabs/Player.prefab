@@ -515,6 +515,7 @@ GameObject:
   - component: {fileID: 5450688329181935730}
   - component: {fileID: 5450688329181935741}
   - component: {fileID: 5450688329181935742}
+  - component: {fileID: 4719506519995511258}
   m_Layer: 0
   m_Name: Player Model
   m_TagString: Player
@@ -734,6 +735,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1cd86ad70f8484b95977e3b942a8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  animator: {fileID: 0}
+  spawnController: {fileID: 0}
+  spawnSound: {fileID: 0}
+  disableAutoSpawnAnimation: 0
   inventory: {fileID: 5450688329181935742}
   playerCanvas: {fileID: 5450688331090623486}
   rb: {fileID: 5450688329181935729}
@@ -777,6 +783,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCanvas: {fileID: 5450688331090623486}
   items: []
+--- !u!95 &4719506519995511258
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5450688329181935732}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5450688329273529698
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,12 +2558,6 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
---- !u!1 &7134395906198188323 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
-    type: 3}
-  m_PrefabInstance: {fileID: 5450688330803544272}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7134395906198188335 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
@@ -2554,6 +2573,12 @@ MonoBehaviour:
 --- !u!224 &7134395906198188322 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 5450688330803544272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7134395906198188323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
     type: 3}
   m_PrefabInstance: {fileID: 5450688330803544272}
   m_PrefabAsset: {fileID: 0}
