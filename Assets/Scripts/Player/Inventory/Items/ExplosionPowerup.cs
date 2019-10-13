@@ -1,28 +1,41 @@
 /* Every Power up is only different with how it changes the screen when used: */
 using UnityEngine;
 
-public class ExplosionPowerup : BasePowerup {
+public class ExplosionPowerup : BasePowerup
+{
     public static string Name = "Explosion";
+    public GameObject explosionPrefab;
 
-    private void Start () {
+    private void Awake()
+    {
+        explosionPrefab = Resources.Load<GameObject>("Prefabs/Explosion");
+    }
+
+    private void Start()
+    {
         // When this powerup is added, simply show the explosion icon
-        SetIconVisibility (true);
+        SetIconVisibility(true);
     }
 
-    private void SetIconVisibility (bool visible) {
+    private void SetIconVisibility(bool visible)
+    {
         // TODO: Generate icon on the fly, instead of setting it staticly on the canvas
-        var canvasIcon = GameObject.Find ("ExplosionIcon");
-        var explosionIconScript = canvasIcon.GetComponent<ExplosionIcon> ();
-        if (explosionIconScript) explosionIconScript.SetVisible (visible);
+        var canvasIcon = GameObject.Find("ExplosionIcon");
+        if (!canvasIcon) return;
+
+        var explosionIconScript = canvasIcon.GetComponent<ExplosionIcon>();
+        if (explosionIconScript) explosionIconScript.SetVisible(visible);
     }
 
-    public override void Use () {
-        GameObject explosionPrefab = Resources.Load<GameObject> ("Prefabs/Explosion");
-        Instantiate (explosionPrefab, transform.position, Quaternion.identity);
-        Destroy (this);
+    public override void Use()
+    {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(this);
     }
 
-    private void OnDestroy () {
-        SetIconVisibility (false);
+    protected override void OnDestroy()
+    {
+        SetIconVisibility(false);
+        base.OnDestroy();
     }
 }

@@ -38,12 +38,11 @@ public class EnemyAreaScript : MonoBehaviour
     {
         if (_isSpawnEnemies == false && other.tag == "Player") //On first land
         {
-            enemySpawner   =  gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
-            powerupSpawner =  gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
+            enemySpawner = gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
+            powerupSpawner = gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
 
-            enemySpawner.set(  ref enemyPrefab   ,ref EnemyArea , 8.0f , 1.25f);
-            powerupSpawner.set(ref powerupPrefab ,ref EnemyArea , 5.0f , 22.0f);
-
+            enemySpawner.set(ref enemyPrefab, ref EnemyArea, 8.0f, 1.25f);
+            powerupSpawner.set(ref powerupPrefab, ref EnemyArea, 5.0f, 2.0f);
 
             _isSpawnEnemies = true; //stop making more spawning Objects
         }

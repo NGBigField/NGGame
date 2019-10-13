@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PowerupLogic : MonoBehaviour
+public class PowerupLogic : GameEntity
 {
     public AudioClip pickupSound;
 
@@ -16,8 +16,6 @@ public class PowerupLogic : MonoBehaviour
 
             // TODO: Instantiate a generic powerup instead of an explosion
             playerInventory.AddItem(typeof(ExplosionPowerup));
-
-            var animator = GetComponentInParent<Animator>();
             animator.SetBool("isDissolve", true);
             Destroy(this.gameObject, (35f / 60f));
         }
