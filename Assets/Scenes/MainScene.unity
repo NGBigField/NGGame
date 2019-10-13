@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -126,18 +126,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1897720314}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &31378574 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5450688329181935741, guid: 904fd25629390794d8a9cb7d92718690,
-    type: 3}
-  m_PrefabInstance: {fileID: 1897720314}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31378573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3598c03d5d484d9e8da15dd54110489, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &31378576 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5450688329181935742, guid: 904fd25629390794d8a9cb7d92718690,
@@ -351,7 +339,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.65304e-39, z: -1.15e-42, w: -7.27e-43}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 4e-45, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -861,30 +849,9 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 31378576}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5450688329952385861, guid: 904fd25629390794d8a9cb7d92718690, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 904fd25629390794d8a9cb7d92718690, type: 3}
---- !u!1 &1995587382 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4328457814173815244, guid: 904fd25629390794d8a9cb7d92718690,
-    type: 3}
-  m_PrefabInstance: {fileID: 1897720314}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1995587386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995587382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d56bcf359e10b4ac1af66536068ddc7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerControl: {fileID: 31378574}
-  dragSensitivity: 1
-  cameraMovement: {fileID: 1469422810}
-  movementSensitivity: 0.1
 --- !u!1001 &4095116511440223211
 PrefabInstance:
   m_ObjectHideFlags: 0
