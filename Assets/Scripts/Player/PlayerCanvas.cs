@@ -15,7 +15,7 @@ public class PlayerCanvas : MonoBehaviour
     private void Start()
     {
         // --> Comment this line to allow platform specific modifications take place
-        DoPlatformModifications();
+        // DoPlatformModifications();
     }
 
     ///<summary>
