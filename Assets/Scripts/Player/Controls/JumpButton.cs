@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class JumpButton : MonoBehaviour, IPointerDownHandler
-{
+public class JumpButton : MonoBehaviour {
     public PlayerControl playerControl;
-    // Start is called before the first frame update
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        playerControl.Jump();
+
+    public void OnClick () {
+        playerControl.Jump ();
     }
 }
