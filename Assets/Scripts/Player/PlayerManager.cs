@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
 
     public void RestartPlayer()
     {
-        Vector3 startingPoint = new Vector3(0.0f, 10f, -8.0f);
+        Vector3 startingPoint = new Vector3(0.0f, 15f, -8.0f);
         health = 1.0f;
         score = 0.0f;
         transform.position = startingPoint;

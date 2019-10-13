@@ -12,6 +12,8 @@ public class EnemyMovement : MonoBehaviour
 
     private float movementFactor = 10.0f;
     private float size;
+    private float lastCollisionTime;
+    private float afterCollisionWaitTime = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.isGameOver) return;
+        if (GameManager.Instance.isGameOver || !isMoveable) return;
         var playerPosition = player.transform.position;
         var enemyPosition = transform.position;
         var delta = playerPosition - enemyPosition;
@@ -57,12 +59,26 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+    private bool isMoveable
+    {
+        get
+        {
+            return Time.time - lastCollisionTime > afterCollisionWaitTime;
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
+        if (!isMoveable) return;
+
         if (other.collider.tag == "Player")
         {
             var playerManager = other.collider.GetComponent<PlayerManager>();
-            playerManager.OnPlayerHit(0.25f);
+            playerManager.OnPlayerHit(0.20f);
+
+            /*On hit, stop enemy */
+            rb.velocity = new Vector3(0, 0, 0);
+            lastCollisionTime = Time.time;
         }
     }
 

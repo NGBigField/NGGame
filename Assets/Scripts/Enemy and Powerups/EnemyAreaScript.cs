@@ -42,7 +42,7 @@ public class EnemyAreaScript : MonoBehaviour
             powerupSpawner = gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
 
             enemySpawner.set(ref enemyPrefab, ref EnemyArea, 8.0f, 1.25f);
-            powerupSpawner.set(ref powerupPrefab, ref EnemyArea, 5.0f, 2.0f);
+            powerupSpawner.set(ref powerupPrefab, ref EnemyArea, 5.0f, 12.0f);
 
             _isSpawnEnemies = true; //stop making more spawning Objects
         }

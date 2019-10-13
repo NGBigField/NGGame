@@ -3,6 +3,9 @@ using UnityEngine.EventSystems;
 
 public class TouchControls : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
+    public PlayerControl playerControl;
+    public float dragSensitivity = 1f;
+    private Vector2 touchPositionDelta;
     public CameraMovement cameraMovement;
     public float movementSensitivity = 0.1f;
 
@@ -19,14 +22,14 @@ public class TouchControls : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     public void OnDrag(PointerEventData eventData)
     {
         // Get movement of the finger since last frame
-        var touchDeltaPosition = eventData.delta * movementSensitivity;
+        var touchPositionDelta = eventData.delta * movementSensitivity;
 
         // Move the camera accordingly
-        cameraMovement.MoveCamera(touchDeltaPosition.x, touchDeltaPosition.y);
+        cameraMovement.MoveCamera(touchPositionDelta.x, touchPositionDelta.y);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-
+        if (!eventData.dragging) playerControl.Fire();
     }
 }

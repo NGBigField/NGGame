@@ -167,7 +167,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 176
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.88993955
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -271,7 +271,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.31262738
+  m_Height: 1.8221974
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.012718737, y: -0.13980198, z: 0}
