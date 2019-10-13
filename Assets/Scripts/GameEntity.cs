@@ -1,5 +1,4 @@
-﻿using UnityEditor.Animations;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// This is a the basic object for all living entities in the game, creates a common infrastructure for common functions like spawn.
@@ -9,7 +8,7 @@ public class GameEntity : MonoBehaviour
     public AudioSource audioSource;
     public Animator animator;
 
-    public AnimatorController spawnController;
+    public RuntimeAnimatorController spawnController;
 
     public AudioClip spawnSound;
 
@@ -19,7 +18,7 @@ public class GameEntity : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        spawnController = (AnimatorController)Resources.Load("Animations/SpawnController");
+        spawnController = (RuntimeAnimatorController)Resources.Load("Animations/SpawnController");
         spawnSound = (AudioClip)Resources.Load("Sounds/Electric Sfx/Wav/Whoosh_Electric/Whoosh_Electric_00");
     }
 
