@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class ExplosionPowerup : BasePowerup
 {
-    public static string Name = "Explosion";
+    public static string NAME = "Explosion";
+
     public GameObject explosionPrefab;
+
+    public override string ItemName => ExplosionPowerup.NAME;
 
     private void Awake()
     {

@@ -1,48 +1,55 @@
 ﻿using UnityEngine;
 
-public class PlayerLogic : MonoBehaviour {
+public class PlayerLogic : MonoBehaviour
+{
     public PlayerControl playerControl;
     public PlayerCanvas playerCanvas;
 
     // Start is called before the first frame update
-    void Start () {
+    void Start()
+    {
         // Disables simulate mouse with touches to allow mouse fire to only work on desktop and not on mobile touch
         Input.simulateMouseWithTouches = false;
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (GameManager.Instance.isGameOver) return;
 
-        MoveLogic ();
-        JumpLogic ();
-        FireLogic ();
-        ExplosionLogic ();
+        MoveLogic();
+        JumpLogic();
+        FireLogic();
+        ExplosionLogic();
     }
 
-    void MoveLogic () {
-        var horizontal = Input.GetAxis ("Horizontal");
-        var vertical = Input.GetAxis ("Vertical");
-        playerControl.Move (horizontal, vertical);
+    void MoveLogic()
+    {
+        var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
+        playerControl.Move(horizontal, vertical);
 
         // If the player fell off the screen
-        if (transform.position.y < -5) GameManager.Instance.Endgame (GetComponent<PlayerManager> ().score);
+        if (transform.position.y < -5) GameManager.Instance.Endgame(GetComponent<PlayerManager>().score);
     }
 
-    void JumpLogic () {
-        var jumpTriggered = Input.GetButtonDown ("Jump");
-        if (jumpTriggered) playerControl.Jump ();
+    void JumpLogic()
+    {
+        var jumpTriggered = Input.GetButtonDown("Jump");
+        if (jumpTriggered) playerControl.Jump();
     }
 
-    void FireLogic () {
+    void FireLogic()
+    {
 
-        playerControl.UpdateFireCrosshair ();
+        playerControl.UpdateFireCrosshair();
 
-        if (Input.GetButtonDown ("Fire1"))
-            playerControl.Fire ();
+        if (Input.GetButtonDown("Fire1"))
+            playerControl.Fire();
     }
 
-    void ExplosionLogic () {
-        if (Input.GetButtonDown ("Fire2")) playerControl.UsePowerup ();
+    void ExplosionLogic()
+    {
+        if (Input.GetButtonDown("Fire2")) playerControl.UsePowerup(ExplosionPowerup.NAME);
     }
 }

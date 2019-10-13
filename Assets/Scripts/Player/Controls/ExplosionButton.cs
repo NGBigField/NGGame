@@ -7,6 +7,6 @@ public class ExplosionButton : MonoBehaviour, IPointerDownHandler
     // Start is called before the first frame update
     public void OnPointerDown(PointerEventData eventData)
     {
-        playerControl.UsePowerup();
+        playerControl.UsePowerup(ExplosionPowerup.NAME);
     }
 }

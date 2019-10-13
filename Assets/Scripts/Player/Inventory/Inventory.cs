@@ -24,6 +24,14 @@ public class Inventory : MonoBehaviour
         return item;
     }
 
+    public BaseInventoryItem GetItemByName(string name)
+    {
+        foreach (var item in items)
+            if (name == item.ItemName) return item;
+
+        return null;
+    }
+
     public void OnItemDestroy(BaseInventoryItem item)
     {
         if (items.Contains(item))
