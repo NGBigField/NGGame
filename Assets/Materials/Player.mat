@@ -81,13 +81,13 @@ Material:
     - _Cutoff: 0.5
     - _Dissolve: 0
     - _DstBlend: 0
-    - _EdgeWidth: 0.01
+    - _EdgeWidth: 0.04
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _NoiseScale: 30
+    - _NoiseScale: 11.87
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
