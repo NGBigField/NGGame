@@ -74,7 +74,7 @@ public class EnemyMovement : MonoBehaviour
         if (other.collider.tag == "Player")
         {
             var playerManager = other.collider.GetComponent<PlayerManager>();
-            playerManager.OnPlayerHit(0.20f);
+            playerManager.OnPlayerHit(0.25f);
 
             /*On hit, stop enemy */
             rb.velocity = new Vector3(0, 0, 0);
