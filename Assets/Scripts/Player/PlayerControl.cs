@@ -38,6 +38,11 @@ public class PlayerControl : MonoBehaviour
         rb.AddForce(forwardVec * force * Time.deltaTime * vertical, ForceMode.Impulse);
         rb.AddForce(sideVec * force * Time.deltaTime * horizontal, ForceMode.Impulse);
     }
+    public void Freeze()
+    {
+        rb.velocity = new Vector3(0,rb.velocity.y,0);
+        rb.rotation = Quaternion.identity;
+    }
 
     public void Jump()
     {

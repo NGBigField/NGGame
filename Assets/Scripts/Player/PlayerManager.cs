@@ -25,8 +25,7 @@ public class PlayerManager : MonoBehaviour
         transform.position = startingPoint;
 
         /*  Fixess a bug where the player maintain his previous speed after death */
-        rb.velocity = Vector3.zero;
-        rb.rotation = Quaternion.identity;
+        gameObject.GetComponentInParent<PlayerLogic>().FreezePlayer(0.8f);
 
         playerCanvas.ShowCrosshair();
         playerCanvas.SetScore(0.0f);
@@ -49,7 +48,6 @@ public class PlayerManager : MonoBehaviour
         health = 0.0f;
         playerCanvas.HideCrosshair();
 
-        // TODO: Hide touch controls
 
         // Show the game over text
         var gameOverObject = transform.parent.Find("Player Canvas").Find("GameOver");

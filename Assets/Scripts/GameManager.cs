@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
 
     private float gameOverTime;
-    private float restartTime = 1.2f;
+    private float restartTime = 2.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
     {
         // If the game has ended and the user is pressing any key or touching the screen
         if (isGameOver && ((Input.anyKeyDown || Input.touchCount > 0) && (Time.time - gameOverTime) > restartTime)) // Wait at least 2 seconds before restarting the game show the game over animation
-            RestartGame();
+            {
+                RestartGame();
+            }
     }
 
     public void Endgame(float score)
@@ -40,23 +42,17 @@ public class GameManager : MonoBehaviour
         foreach (var EnemyArea in GameObject.FindGameObjectsWithTag("EnemyArea"))
             EnemyArea.GetComponent<EnemyAreaScript>().restartGame();
 
-        StartCoroutine(CleanGame());
+        StartCoroutine(CleanGame(2.0f));
     }
 
     /// <summary>
-    /// Cleans all of the game scene, preparing for a new scense instead. Waits 2 seconds before cleaning the field to allow the game over animation take place.
+    /// Cleans all of the game scene, preparing for a new scene instead. Waits 2 seconds before cleaning the field to allow the game over animation to take place.
     /// </summary>
     /// <returns></returns>
-    private IEnumerator CleanGame()
+    private IEnumerator CleanGame(float delay)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(delay);
 
-        // Restart all players to their starting state
-        foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            var playerManager = player.GetComponent<PlayerManager>();
-            playerManager.RestartPlayer();
-        }
 
         // Destroy all leftover objects
         foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
@@ -74,5 +70,12 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
         var gameOverAnimator = GameObject.Find("GameOver").GetComponent<Animator>();
         gameOverAnimator.SetBool("isGameOver", false);
+
+        // Restart all players to their starting state
+        foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            var playerManager = player.GetComponent<PlayerManager>();
+            playerManager.RestartPlayer();
+        }
     }
 }

@@ -12,7 +12,7 @@ public class ExplosionLogic : MonoBehaviour
 
     private float explosionForce = 80.0f;
     private float finalExplosionRadius = 15.0f;
-    private float explosionRadiusInc = 0.5f;
+    private float explosionRadiusInc = 0.4f;
     private float explosionLifeTime = 1.4f;
 
     // Start is called before the first frame update
