@@ -84,6 +84,9 @@ public class GameManager : MonoBehaviour
             var playerManager = player.GetComponent<PlayerManager>();
             playerManager.RestartPlayer();
         }
+
+        // Restart the level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void PauseGameToggle()
