@@ -33,7 +33,6 @@ public class PlayerCanvas : MonoBehaviour
         Cursor.visible = false;
 
         // Destroy the touch controls on desktop
-        var touchControls = transform.Find("Touch Controls");
         Destroy(touchControls.gameObject);
 #else
         // Set touch controls to active when on mobile and touch supported
