@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.isGameOver || !isMoveable) return;
+        if (GameManager.Instance.IsGameFreezed || !isMoveable) return;
         var playerPosition = player.transform.position;
         var enemyPosition = transform.position;
         var delta = playerPosition - enemyPosition;

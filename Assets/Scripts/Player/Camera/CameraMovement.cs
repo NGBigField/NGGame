@@ -22,17 +22,17 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
-        var controlMode = GameSettings.Instance.ControlMode;
+        var controlMode = GameSettings.Instance.controlMode;
 
         // If gyro is supported and was configured in the settings, use gyro for camera movement instead of controls
-        gyroEnabled = (controlMode == GameControlMode.Gyroscope);
+        gyroEnabled = (controlMode == GameControlMode.Gyroscope && EnableGyro());
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.isGameOver) return;
+        if (GameManager.Instance.IsGameFreezed) return;
 
         if (gyroEnabled)
         {

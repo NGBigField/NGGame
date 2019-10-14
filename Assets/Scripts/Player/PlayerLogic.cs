@@ -8,8 +8,7 @@ public class PlayerLogic : MonoBehaviour
 
     private float spawnFreezeTime;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         // Disables simulate mouse with touches to allow mouse fire to only work on desktop and not on mobile touch
         Input.simulateMouseWithTouches = false;
@@ -18,7 +17,11 @@ public class PlayerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance && GameManager.Instance.isGameOver) return;
+        // Always check pause logic
+        CheckPauseLogic();
+
+        // Check if the game is currently freezed, if so, don't do anything
+        if (GameManager.Instance.IsGameFreezed) return;
 
         MoveLogic();
         JumpLogic();
@@ -30,7 +33,7 @@ public class PlayerLogic : MonoBehaviour
 
     void MoveLogic()
     {
-        if (Time.time - lastSpawnTime < spawnFreezeTime) //If player needs to be frozen:
+        if (Time.time - lastSpawnTime < spawnFreezeTime) // If player needs to be frozen
         {
             playerControl.Freeze();
         }
@@ -50,7 +53,6 @@ public class PlayerLogic : MonoBehaviour
 
     void FireLogic()
     {
-
         playerControl.UpdateFireCrosshair();
 
         if (Input.GetButtonDown("Fire1"))
@@ -66,6 +68,11 @@ public class PlayerLogic : MonoBehaviour
     {
         // If the player fell off the screen
         if (transform.position.y < -5) GameManager.Instance.Endgame(GetComponent<PlayerManager>().score);
+    }
+
+    void CheckPauseLogic()
+    {
+        if (Input.GetButtonDown("Cancel")) GameManager.Instance.PauseGameToggle();
     }
 
     public void FreezePlayer(float freezeTime)

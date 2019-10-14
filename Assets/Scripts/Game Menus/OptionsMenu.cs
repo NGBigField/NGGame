@@ -12,16 +12,17 @@ public class OptionsMenu : MonoBehaviour
 
     public void ChangeControlMode()
     {
-        var controlMode = gameSettings.ControlMode;
+        var controlMode = gameSettings.controlMode;
         if (controlMode == GameControlMode.Joystick && SystemInfo.supportsGyroscope) controlMode = GameControlMode.Gyroscope;
         else controlMode = GameControlMode.Joystick;
-        gameSettings.ControlMode = controlMode;
+        gameSettings.controlMode = controlMode;
+        gameSettings.SaveSettings();
         UpdateControlModeText();
     }
 
     private void UpdateControlModeText()
     {
         var controlsButtonText = transform.Find("ControlsButton").Find("Text").GetComponent<TextMeshProUGUI>();
-        controlsButtonText.text = string.Format("CONTROLS: {0}", (gameSettings.ControlMode == GameControlMode.Gyroscope ? "Gyroscope" : @"Joystick\Mouse"));
+        controlsButtonText.text = string.Format("CONTROLS: {0}", (gameSettings.controlMode == GameControlMode.Gyroscope ? "Gyroscope" : @"Joystick\Mouse"));
     }
 }

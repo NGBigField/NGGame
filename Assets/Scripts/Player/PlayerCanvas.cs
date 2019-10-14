@@ -2,8 +2,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Allows access to change elements on the player canvas.
+/// </summary>
 public class PlayerCanvas : MonoBehaviour
 {
+    public GameObject pauseMenu;
     public Image damageBlinkImage;
     public CanvasGroup crosshair;
 
@@ -12,9 +16,9 @@ public class PlayerCanvas : MonoBehaviour
     public HealthBar healthBar;
     public ExplosionIcon explosionIcon;
 
-    private void Start()
+    private void Awake()
     {
-        // --> Comment this line to allow platform specific modifications take place
+        // --> Uncomment this line to allow platform specific modifications take place
         DoPlatformModifications();
     }
 
@@ -23,6 +27,7 @@ public class PlayerCanvas : MonoBehaviour
     /// </summary>
     private void DoPlatformModifications()
     {
+        var touchControls = transform.Find("Touch Controls");
 #if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX // If we are on desktop
         // Hide the cursor on desktop
         Cursor.visible = false;
@@ -30,6 +35,9 @@ public class PlayerCanvas : MonoBehaviour
         // Destroy the touch controls on desktop
         var touchControls = transform.Find("Touch Controls");
         Destroy(touchControls.gameObject);
+#else
+        // Set touch controls to active when on mobile
+        touchControls.gameObject.SetActive(true);
 #endif
     }
     public void HideCrosshair()
@@ -55,6 +63,16 @@ public class PlayerCanvas : MonoBehaviour
     public void DoDamageBlink()
     {
         StartCoroutine(DamageBlinkScreen());
+    }
+
+    public void ShowPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+
+    public void HidePauseMenu()
+    {
+        pauseMenu.SetActive(false);
     }
 
     private IEnumerator DamageBlinkScreen()

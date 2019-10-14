@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,8 +8,12 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver = false;
 
+    public bool isGamePaused = false;
+
     private float gameOverTime;
     private float restartTime = 2.0f;
+
+    public bool IsGameFreezed { get { return isGamePaused || isGameOver; } }
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +26,9 @@ public class GameManager : MonoBehaviour
     {
         // If the game has ended and the user is pressing any key or touching the screen
         if (isGameOver && ((Input.anyKeyDown || Input.touchCount > 0) && (Time.time - gameOverTime) > restartTime)) // Wait at least 2 seconds before restarting the game show the game over animation
-            {
-                RestartGame();
-            }
+        {
+            RestartGame();
+        }
     }
 
     public void Endgame(float score)
@@ -68,8 +73,6 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         isGameOver = false;
-        var gameOverAnimator = GameObject.Find("GameOver").GetComponent<Animator>();
-        gameOverAnimator.SetBool("isGameOver", false);
 
         // Restart all players to their starting state
         foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
@@ -77,5 +80,23 @@ public class GameManager : MonoBehaviour
             var playerManager = player.GetComponent<PlayerManager>();
             playerManager.RestartPlayer();
         }
+    }
+
+    public void PauseGameToggle()
+    {
+        isGamePaused = !isGamePaused;
+        Time.timeScale = (isGamePaused) ? 0.0f : 1.0f;
+
+        foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            var playerCanvas = player.transform.parent.GetComponentInChildren<PlayerCanvas>();
+            if (isGamePaused) playerCanvas.ShowPauseMenu();
+            else playerCanvas.HidePauseMenu();
+        }
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

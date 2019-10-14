@@ -1,4 +1,7 @@
-﻿public enum GameControlMode
+﻿using System;
+using UnityEngine;
+
+public enum GameControlMode
 {
     Joystick,
     Gyroscope
@@ -17,5 +20,20 @@ public class GameSettings
         }
     }
 
-    public GameControlMode ControlMode = GameControlMode.Joystick;
+    public GameSettings()
+    {
+        LoadSettings();
+    }
+
+    public GameControlMode controlMode;
+
+    public void LoadSettings()
+    {
+        controlMode = (GameControlMode)Enum.ToObject(typeof(GameControlMode), PlayerPrefs.GetInt("ControlMode", (int)GameControlMode.Joystick));
+    }
+
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetInt("ControlMode", (int)controlMode);
+    }
 }

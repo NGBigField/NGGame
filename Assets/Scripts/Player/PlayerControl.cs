@@ -5,6 +5,7 @@
 /// </summary>
 public class PlayerControl : MonoBehaviour
 {
+    public AudioSource audioSource;
     public Rigidbody rb;
     public Vector3 fireVec;
     public Vector3 forwardVec;
@@ -21,16 +22,20 @@ public class PlayerControl : MonoBehaviour
     private float jumpVelocity = 6.7f;
     private bool isGrounded;
 
-    private AudioSource audioSource;
+
     private float fireAngle = 15f;
 
-    void Start()
+    public bool InputDisabled
     {
-        audioSource = GetComponent<AudioSource>();
+        get
+        {
+            return GameManager.Instance.IsGameFreezed;
+        }
     }
 
     public void Move(float horizontal, float vertical)
     {
+        if (InputDisabled) return;
         forwardVec = Camera.main.transform.forward;
         forwardVec.y = 0;
         sideVec = Quaternion.AngleAxis(90, Vector3.up) * forwardVec;
@@ -40,12 +45,14 @@ public class PlayerControl : MonoBehaviour
     }
     public void Freeze()
     {
-        rb.velocity = new Vector3(0,rb.velocity.y,0);
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
         rb.rotation = Quaternion.identity;
     }
 
     public void Jump()
     {
+        if (InputDisabled) return;
+
         if (isGrounded)
         {
             audioSource.PlayOneShot(jumpSound);
@@ -61,6 +68,8 @@ public class PlayerControl : MonoBehaviour
 
     public void Fire()
     {
+        if (InputDisabled) return;
+
         /* Create Bullet  */
         var bullet = Instantiate(bulletPrefab, transform.position + Vector3.up * 0.8f, Quaternion.identity);
         var bulletRigidbody = bullet.GetComponent<Rigidbody>();
@@ -71,6 +80,8 @@ public class PlayerControl : MonoBehaviour
 
     public void UsePowerup(string name)
     {
+        if (InputDisabled) return;
+
         var inventory = GetComponent<Inventory>();
         var item = inventory.GetItemByName(name);
         if (item) item.Use();
