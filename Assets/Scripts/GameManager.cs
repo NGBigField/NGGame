@@ -15,8 +15,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsGameFreezed { get { return isGamePaused || isGameOver; } }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         Instance = this;
     }
@@ -73,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         isGameOver = false;
+        isGamePaused = false;
 
         // Restart all players to their starting state
         foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
@@ -97,6 +97,12 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
+        // Before quitting the game, return variables to their normal state
+        isGameOver = false;
+        isGamePaused = false;
+        Time.timeScale = 1.0f;
+
+        // Load the main menu scene
         SceneManager.LoadScene("MainMenu");
     }
 }

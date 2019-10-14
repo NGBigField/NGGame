@@ -68,6 +68,11 @@ public class PlayerManager : GameEntity
         playerCanvas.SetScore(score);
     }
 
+    public void PauseGameToggle()
+    {
+        GameManager.Instance.PauseGameToggle();
+    }
+
     public void QuitGame()
     {
         GameManager.Instance.QuitGame();

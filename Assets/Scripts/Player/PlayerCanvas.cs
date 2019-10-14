@@ -36,8 +36,8 @@ public class PlayerCanvas : MonoBehaviour
         var touchControls = transform.Find("Touch Controls");
         Destroy(touchControls.gameObject);
 #else
-        // Set touch controls to active when on mobile
-        touchControls.gameObject.SetActive(true);
+        // Set touch controls to active when on mobile and touch supported
+        if (Input.touchSupported) touchControls.gameObject.SetActive(true);
 #endif
     }
     public void HideCrosshair()
