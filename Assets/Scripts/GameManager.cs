@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        // Set the timescale to normal
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
@@ -73,6 +76,7 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = false;
         isGamePaused = false;
+        Time.timeScale = 1.0f;
 
         // Restart all players to their starting state
         foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
