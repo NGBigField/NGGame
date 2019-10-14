@@ -3,17 +3,16 @@
 public class CameraMovement : MonoBehaviour
 {
     /* Global */
-    public bool autoUseGyroscope;
     public Transform playerTransform;
     private float camereDistance = 4.47f;
 
 
     /* For Gyro Movement */
     private bool gyroEnabled;
+
     private Gyroscope gyro;
     private GameObject cameraContainer;
     private Quaternion GyroRotationFactor;
-
 
 
     /* For mouse/touch movement */
@@ -21,19 +20,13 @@ public class CameraMovement : MonoBehaviour
     public float turnSpeedX = 4.0f;
     public float turnSpeedY = 2.0f;
 
-
-
-
     void Start()
     {
-        if (autoUseGyroscope)
-        {
-            gyroEnabled = EnableGyro();
-        }
-        else
-        {
-            gyroEnabled = false;
-        }
+        var controlMode = GameSettings.Instance.ControlMode;
+
+        // If gyro is supported and was configured in the settings, use gyro for camera movement instead of controls
+        gyroEnabled = (controlMode == GameControlMode.Gyroscope);
+
     }
 
     // Update is called once per frame
@@ -91,7 +84,7 @@ public class CameraMovement : MonoBehaviour
 
     private bool EnableGyro()
     {
-        if (autoUseGyroscope && SystemInfo.supportsGyroscope)
+        if (SystemInfo.supportsGyroscope)
         {
             cameraContainer = new GameObject("Camera Container");
             cameraContainer.transform.position = transform.position;

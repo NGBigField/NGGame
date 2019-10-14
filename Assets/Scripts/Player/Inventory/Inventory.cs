@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public PlayerCanvas playerCanvas;
-
     public List<BaseInventoryItem> items = new List<BaseInventoryItem>();
 
     public void Reset()

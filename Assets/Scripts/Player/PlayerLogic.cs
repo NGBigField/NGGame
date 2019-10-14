@@ -18,7 +18,7 @@ public class PlayerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.isGameOver) return;
+        if (GameManager.Instance && GameManager.Instance.isGameOver) return;
 
         MoveLogic();
         JumpLogic();
