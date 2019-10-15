@@ -16,11 +16,13 @@ public class PlayerManager : GameEntity
     protected override void Awake()
     {
         base.Awake();
+        disableAutoSpawnAnimation = true;
     }
 
     protected override void Start()
     {
         base.Start();
+        RestartPlayer();
     }
 
     public void RestartPlayer()
