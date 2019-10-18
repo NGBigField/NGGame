@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public bool isOnDesktop;
     public static GameManager Instance;
 
     public bool isGameOver = false;
@@ -21,6 +22,19 @@ public class GameManager : MonoBehaviour
 
         // Set the timescale to normal
         Time.timeScale = 1.0f;
+
+        DoPlatformModifications();
+        Debug.Log("isOnDesktop = " );  Debug.Log(isOnDesktop);
+    }
+
+
+    private void DoPlatformModifications()
+    {
+#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX // If we are on desktop
+        isOnDesktop = true;
+#else
+        isOnDesktop = false;
+#endif
     }
 
     // Update is called once per frame

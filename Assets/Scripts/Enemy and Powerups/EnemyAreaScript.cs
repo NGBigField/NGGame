@@ -3,11 +3,14 @@
 public class EnemyAreaScript : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject powerupPrefab;
+    public GameObject ExplosionPowerupPrefab;
+
+    public GameObject LifePowerupPrefab;
     public GameObject EnemyArea
     ;
     private spawnObjects enemySpawner;
-    private spawnObjects powerupSpawner;
+    private spawnObjects ExplosionPowerupSpawner;
+    private spawnObjects LifePowerupSpawner;
     private bool _isSpawnEnemies = false;
 
     // Start is called before the first frame update
@@ -31,7 +34,8 @@ public class EnemyAreaScript : MonoBehaviour
     {
         _isSpawnEnemies = false;
         Destroy(enemySpawner);
-        Destroy(powerupSpawner);
+        Destroy(ExplosionPowerupSpawner);
+        Destroy(LifePowerupSpawner);
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,10 +43,12 @@ public class EnemyAreaScript : MonoBehaviour
         if (_isSpawnEnemies == false && other.tag == "Player") //On first land
         {
             enemySpawner = gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
-            powerupSpawner = gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
+            ExplosionPowerupSpawner = gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
+            LifePowerupSpawner = gameObject.AddComponent(typeof(spawnObjects)) as spawnObjects;
 
             enemySpawner.set(ref enemyPrefab, ref EnemyArea, 8.0f, 1.25f);
-            powerupSpawner.set(ref powerupPrefab, ref EnemyArea, 3.0f, 16.0f);
+            ExplosionPowerupSpawner.set(ref ExplosionPowerupPrefab, ref EnemyArea, 3.0f, 16.0f);
+            LifePowerupSpawner.set(ref LifePowerupPrefab, ref EnemyArea, 4.0f, 26.0f);
 
             _isSpawnEnemies = true; //stop making more spawning Objects
         }

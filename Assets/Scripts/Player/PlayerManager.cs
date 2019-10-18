@@ -79,4 +79,26 @@ public class PlayerManager : GameEntity
     {
         GameManager.Instance.QuitGame();
     }
+
+    public bool PickupPowerup(System.Type itemType)
+    {
+        if (itemType == typeof(ExplosionPowerup)) return inventory.AddItem(itemType);  //Can add here more types of inventory powerups
+        if (itemType == typeof(LifePowerup)) return useImmediatePowerup(itemType);   //Can add here more types of use-when-picked powerups
+        else return false;
+    }
+
+    private bool useImmediatePowerup(System.Type itemType)
+    {
+        if (itemType == typeof(LifePowerup))
+        {
+            if (this.health < 1.0f)
+            {
+                this.health = Mathf.Min(1.0f, this.health + LifePowerup.healthIncrease);
+                playerCanvas.SetHealth(this.health);
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
