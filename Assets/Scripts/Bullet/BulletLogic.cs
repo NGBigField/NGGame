@@ -1,23 +1,13 @@
 ﻿using UnityEngine;
 
-public class BulletLogic : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+public class BulletLogic : MonoBehaviour {
+    protected virtual void Update () {
         if (transform.position.y < -5.0)
-            Destroy(this.gameObject);
+            Destroy (this.gameObject);
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
+    protected virtual void OnCollisionEnter (Collision other) {
         //GameManager.IncreaseScore();
-        Destroy(gameObject, 10);
+        Destroy (gameObject, 10);
     }
 }
