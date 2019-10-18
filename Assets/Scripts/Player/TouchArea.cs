@@ -29,6 +29,6 @@ public class TouchArea : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
     public void OnPointerUp(PointerEventData eventData)
     {
         if (GameManager.Instance.IsGameFreezed) return;
-        if (!eventData.dragging) playerControl.Fire();
+        if (!eventData.dragging) playerControl.FireDown();
     }
 }

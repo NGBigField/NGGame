@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3598c03d5d484d9e8da15dd54110489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 2791337261996194513}
   audioSource: {fileID: 7120590524962944227}
   rb: {fileID: 7120590524962944238}
   fireVec: {x: 0, y: 0, z: 0}
@@ -318,6 +319,7 @@ GameObject:
   - component: {fileID: 7120590526106706623}
   - component: {fileID: 7120590526106706616}
   - component: {fileID: 7120590526106706617}
+  - component: {fileID: 2791337261996194513}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -398,3 +400,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControl: {fileID: 7120590524962944226}
+--- !u!114 &2791337261996194513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7120590526106706618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290d36e670deb40e3a04c729f84f1c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kickVelocityFactor: 2
+  bulletPrefab: {fileID: 537597356750841749, guid: 13406ca2a03c6d2429ea56ffa3deb330,
+    type: 3}
