@@ -1,8 +1,7 @@
 /* Every Power up is only different with how it changes the screen when used: */
 using UnityEngine;
 
-public class LifePowerup : BasePowerup
-{
+public class LifePowerup : BasePowerup {
     public static string NAME = "Life";
 
     public GameObject lifePrefab;
@@ -11,23 +10,19 @@ public class LifePowerup : BasePowerup
 
     public override string ItemName => LifePowerup.NAME;
 
-    private void Awake()
-    {
-        lifePrefab = Resources.Load<GameObject>("Prefabs/Life");
+    public override bool IsImmediatePowerup => true;
+
+    protected override void Awake () {
+        base.Awake ();
+        lifePrefab = Resources.Load<GameObject> ("Prefabs/Life");
     }
 
-    private void Start()
-    {
-
+    public override void Use () {
+        playerManager.SetHealth (playerManager.health + healthIncrease);
+        Destroy (this);
     }
 
-    public override void Use()
-    {
-        Destroy(this);
-    }
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
+    protected override void OnDestroy () {
+        base.OnDestroy ();
     }
 }

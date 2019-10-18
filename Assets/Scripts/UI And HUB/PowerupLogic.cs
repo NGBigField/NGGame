@@ -18,7 +18,7 @@ public class PowerupLogic : GameEntity
             /*Collect that item and play animation&sound only if playerInventory allowes it */
             //if (playerInventory.AddItem(typeof(ExplosionPowerup))) //Successfully added that item
             //if (playerInventory.AddItem(getPowerupTypeByName(powerupName)))
-            if (playerManeger.PickupPowerup(getPowerupTypeByName(powerupName)))
+            if (playerManeger.PickPowerup(getPowerupTypeByName(powerupName)))
             {
                 animator.SetBool("isDissolve", true);
                 audioSource.PlayOneShot(pickupSound);
