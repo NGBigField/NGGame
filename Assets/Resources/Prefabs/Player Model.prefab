@@ -243,6 +243,7 @@ MonoBehaviour:
   spawnController: {fileID: 0}
   spawnSound: {fileID: 0}
   disableAutoSpawnAnimation: 0
+  gameoverScreen: {fileID: 0}
   inventory: {fileID: 7120590524962944225}
   playerCanvas: {fileID: 0}
   rb: {fileID: 7120590524962944238}
@@ -260,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3598c03d5d484d9e8da15dd54110489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 7120590524962944227}
   rb: {fileID: 7120590524962944238}
   fireVec: {x: 0, y: 0, z: 0}
   forwardVec: {x: 0, y: 0, z: 0}
@@ -284,7 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac87c5a41898364195e97740e4942b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCanvas: {fileID: 0}
   items: []
 --- !u!95 &7497043535285517637
 Animator:
