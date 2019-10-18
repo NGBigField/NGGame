@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GunMovement : MonoBehaviour {
+public class WeaponMovement : MonoBehaviour {
     public PlayerControl playerControl;
     private GameObject gun;
     private GameObject player;
