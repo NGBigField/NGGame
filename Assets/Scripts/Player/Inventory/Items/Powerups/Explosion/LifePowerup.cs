@@ -12,6 +12,8 @@ public class LifePowerup : BasePowerup {
 
     public override bool IsImmediatePowerup => true;
 
+    public override bool Reusable => false;
+
     protected override void Awake () {
         base.Awake ();
         lifePrefab = Resources.Load<GameObject> ("Prefabs/Life");
@@ -19,10 +21,6 @@ public class LifePowerup : BasePowerup {
 
     public override void Use () {
         playerManager.SetHealth (playerManager.health + healthIncrease);
-        Destroy (this);
-    }
-
-    protected override void OnDestroy () {
-        base.OnDestroy ();
+        base.Use ();
     }
 }

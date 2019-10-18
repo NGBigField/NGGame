@@ -10,7 +10,10 @@ public class ExplosionPowerup : BasePowerup {
 
     public override bool IsImmediatePowerup => false;
 
+    public override bool Reusable => false;
+
     protected override void Awake () {
+        base.Awake ();
         explosionPrefab = Resources.Load<GameObject> ("Prefabs/Explosion");
     }
 
@@ -30,7 +33,7 @@ public class ExplosionPowerup : BasePowerup {
 
     public override void Use () {
         Instantiate (explosionPrefab, transform.position, Quaternion.identity);
-        Destroy (this);
+        base.Use ();
     }
 
     protected override void OnDestroy () {

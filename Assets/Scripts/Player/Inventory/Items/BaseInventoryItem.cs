@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public abstract class BaseInventoryItem : MonoBehaviour {
+    public abstract bool Reusable { get; }
+
     protected Inventory inventory;
 
     protected PlayerManager playerManager;
@@ -16,9 +18,15 @@ public abstract class BaseInventoryItem : MonoBehaviour {
 
     public abstract string ItemName { get; }
 
-    public abstract void Use ();
-
-    protected virtual void OnDestroy () {
-        inventory.OnItemDestroy (this);
+    /// <summary>
+    /// Uses the item. If the item is not reusable, destroys the item and removes it from the inventory.
+    /// </summary>
+    public virtual void Use () {
+        if (!Reusable) {
+            inventory.OnItemDestroy (this);
+            Destroy (this);
+        }
     }
+
+    protected virtual void OnDestroy () { }
 }
