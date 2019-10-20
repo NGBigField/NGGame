@@ -30,6 +30,10 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
+    private void Awake () {
+        weapon = GetComponentInChildren<BaseWeapon> ();
+    }
+
     public void Move (float horizontal, float vertical) {
         if (InputDisabled) return;
         forwardVec = Camera.main.transform.forward;
