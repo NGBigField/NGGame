@@ -137,7 +137,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!65 &39180418
 BoxCollider:
@@ -169,7 +169,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cfe01a842ca46d949b0a9e94f5864614, type: 2}
+  - {fileID: 2100000, guid: 7fe1174f778b04c479e16c4ded86b4aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 39180417}
   m_LocalRotation: {x: -0.0005905871, y: 0.0016008512, z: -0.0011229049, w: 0.9999979}
   m_LocalPosition: {x: -0.29, y: 8.57, z: -6.27}
-  m_LocalScale: {x: 5.193812, y: 0.6474372, z: 5.137472}
+  m_LocalScale: {x: 5.193812, y: 0.1, z: 5.137472}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -446,7 +446,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9.1837e-41, y: -1.177e-42, z: -6.87e-43, w: NaN}
+  m_BoundingSphereOverride: {x: 1e-45, y: 2.28e-43, z: 0, w: 110738.19}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -517,7 +517,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6cd8d1ec86714d848883cb3c10592c98, type: 2}
+  - {fileID: 2100000, guid: 780b7c99827edc6458746562bf7b4a61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -557,7 +557,7 @@ Transform:
   m_GameObject: {fileID: 176933867}
   m_LocalRotation: {x: -0.0005905871, y: 0.0016008512, z: -0.0011229049, w: 0.9999979}
   m_LocalPosition: {x: 0.093, y: -0, z: -0.12}
-  m_LocalScale: {x: 19.478197, y: 2.0539086, z: 29.151157}
+  m_LocalScale: {x: 19.478197, y: 0.5, z: 29.151157}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -6146,7 +6146,7 @@ PrefabInstance:
     - target: {fileID: 8594517312300395995, guid: f926f28b74de9da4cb85d49654d15982,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.0539086
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f926f28b74de9da4cb85d49654d15982, type: 3}
