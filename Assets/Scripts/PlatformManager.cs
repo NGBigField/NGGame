@@ -17,7 +17,7 @@ public class PlatformManager : MonoBehaviour {
 
     public static RunningPlatformType GetRunningPlatform () {
 #if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX // If we are on desktop
-        return RunningPlatform.Desktop;
+        return RunningPlatformType.Desktop;
 #else
         return RunningPlatformType.Mobile;
 #endif

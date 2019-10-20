@@ -25,7 +25,8 @@ public class PlayerCanvas : MonoBehaviour {
     public void DoPlatformModifications (RunningPlatformType platform) {
         var touchControls = transform.Find ("Touch Controls");
 
-        if (Input.touchSupported) {
+        // On mobile platform, show touch controls if device is touch capable
+        if (platform == RunningPlatformType.Mobile && Input.touchSupported) {
             Debug.Log ("Device supports input touch, showing touch controls");
             // Set touch controls to active when on mobile and touch supported
             touchControls.gameObject.SetActive (true);
