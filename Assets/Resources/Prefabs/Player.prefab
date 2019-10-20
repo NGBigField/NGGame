@@ -1826,6 +1826,7 @@ GameObject:
   - component: {fileID: 5450688330257798854}
   - component: {fileID: 5450688330257798875}
   - component: {fileID: 5450688330257798855}
+  - component: {fileID: 8719348137680510603}
   m_Layer: 0
   m_Name: Player Camera
   m_TagString: MainCamera
@@ -1923,6 +1924,66 @@ Skybox:
   m_GameObject: {fileID: 5450688330257798874}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 71f14a2d79f732f4d9893ef1b911f4ff, type: 2}
+--- !u!114 &8719348137680510603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5450688330257798874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 5450688330257798853}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &5450688330261072456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,16 +2849,16 @@ PrefabInstance:
       propertyPath: gameoverScreen
       value: 
       objectReference: {fileID: 2612084597730124908}
-    - target: {fileID: 7120590524962944225, guid: 4187ebb1039f4504f834ebd494d0194b,
-        type: 3}
-      propertyPath: playerCanvas
-      value: 
-      objectReference: {fileID: 5450688331090623486}
     - target: {fileID: 7120590524962944226, guid: 4187ebb1039f4504f834ebd494d0194b,
         type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 5450688329181935740}
+    - target: {fileID: 7120590524962944225, guid: 4187ebb1039f4504f834ebd494d0194b,
+        type: 3}
+      propertyPath: playerCanvas
+      value: 
+      objectReference: {fileID: 5450688331090623486}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4187ebb1039f4504f834ebd494d0194b, type: 3}
 --- !u!114 &5450688329181935741 stripped
@@ -3002,6 +3063,18 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+--- !u!1 &7134395906198188323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 5450688330803544272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7134395906198188322 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 5450688330803544272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7134395906198188335 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
@@ -3014,15 +3087,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &7134395906198188322 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
-    type: 3}
-  m_PrefabInstance: {fileID: 5450688330803544272}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7134395906198188323 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
-    type: 3}
-  m_PrefabInstance: {fileID: 5450688330803544272}
-  m_PrefabAsset: {fileID: 0}
