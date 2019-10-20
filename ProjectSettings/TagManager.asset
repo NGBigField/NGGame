@@ -13,6 +13,7 @@ TagManager:
   - HealthBar
   - EnemyArea
   - Powerup
+  - Player Group
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-    public bool isOnDesktop;
     public static GameManager Instance;
 
     public bool isGameOver = false;
@@ -20,25 +19,13 @@ public class GameManager : MonoBehaviour {
 
         // Set the timescale to normal
         Time.timeScale = 1.0f;
-
-        DoPlatformModifications ();
-    }
-
-    private void DoPlatformModifications () {
-#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX // If we are on desktop
-        isOnDesktop = true;
-#else
-        isOnDesktop = false;
-#endif
     }
 
     // Update is called once per frame
     void Update () {
         // If the game has ended and the user is pressing any key or touching the screen
         if (isGameOver && ((Input.anyKeyDown || Input.touchCount > 0) && (Time.time - gameOverTime) > restartTime)) // Wait at least 2 seconds before restarting the game show the game over animation
-        {
             RestartGame ();
-        }
     }
 
     public void Endgame (float score) {
