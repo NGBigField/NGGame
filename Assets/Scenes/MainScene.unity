@@ -446,7 +446,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6e-45, y: 4e-45, z: 1.1754945e-38, w: 0}
+  m_BoundingSphereOverride: {x: 9.1837e-41, y: -1.177e-42, z: -6.87e-43, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -755,6 +755,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 4719506519995511258, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d65521bff547e41a0a507bedb98916db, type: 2}
     - target: {fileID: 5450688330257798852, guid: 904fd25629390794d8a9cb7d92718690,
         type: 3}
       propertyPath: field of view
@@ -1153,10 +1158,10 @@ RectTransform:
   m_Father: {fileID: 1865530259}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 277.6001, y: -140.33}
-  m_SizeDelta: {x: 244.8, y: 103}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -157.8, y: 78.2}
+  m_SizeDelta: {x: 244.79999, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2008870446
 MonoBehaviour:

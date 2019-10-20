@@ -28,4 +28,10 @@ public class GameEntity : MonoBehaviour {
         animator.runtimeAnimatorController = spawnController;
         audioSource.PlayOneShot (spawnSound);
     }
+
+    public void PlayDissolveAnimation () {
+        // TODO: Actually add dissolve animation
+        animator.runtimeAnimatorController = spawnController;
+        audioSource.PlayOneShot (spawnSound);
+    }
 }
