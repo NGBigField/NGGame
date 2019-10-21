@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7120590524962944226}
   - component: {fileID: 7120590524962944225}
   - component: {fileID: 7497043535285517637}
+  - component: {fileID: 5096918779149863816}
   m_Layer: 0
   m_Name: Player Model
   m_TagString: Player
@@ -246,6 +247,7 @@ MonoBehaviour:
   gameoverScreen: {fileID: 0}
   inventory: {fileID: 7120590524962944225}
   playerCanvas: {fileID: 0}
+  weaponBag: {fileID: 5096918779149863816}
   health: 0
   score: 0
 --- !u!114 &7120590524962944226
@@ -307,6 +309,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5096918779149863816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7120590524962944235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e92f1d6ccd746fcad0f7424a7d5a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2394734342563517108
 PrefabInstance:
   m_ObjectHideFlags: 0

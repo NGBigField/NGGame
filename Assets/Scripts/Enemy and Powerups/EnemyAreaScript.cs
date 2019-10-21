@@ -45,7 +45,7 @@ public class EnemyAreaScript : MonoBehaviour {
             explosionPowerupSpawner = gameObject.AddComponent (typeof (ObjectSpawner)) as ObjectSpawner;
             lifePowerupSpawner = gameObject.AddComponent (typeof (ObjectSpawner)) as ObjectSpawner;
 
-            enemySpawner.set (ref enemyPrefab, ref enemyArea, 8.0f, 1.25f);
+            enemySpawner.set (ref enemyPrefab, ref enemyArea, 8.0f, 4f);
             explosionPowerupSpawner.set (ref explosionPowerupPrefab, ref enemyArea, 3.0f, 16.0f);
             lifePowerupSpawner.set (ref lifePowerupPrefab, ref enemyArea, 4.0f, 26.0f);
 

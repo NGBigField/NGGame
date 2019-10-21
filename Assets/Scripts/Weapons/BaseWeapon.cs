@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public abstract class BaseWeapon : MonoBehaviour {
+    public abstract string Name { get; }
+
     /// <summary>
     /// The power of the bullet shot from the weapon.
     /// </summary>

@@ -4,7 +4,6 @@
 /// Contains main player control methods like movement, fire, and secondary fire.
 /// </summary>
 public class PlayerControl : MonoBehaviour {
-    public BaseWeapon weapon;
     public AudioSource audioSource;
     public Rigidbody rb;
     public Vector3 fireVec;
@@ -26,14 +25,24 @@ public class PlayerControl : MonoBehaviour {
 
     private float fireAngle = 15f;
 
+    public WeaponBag WeaponBag {
+        get {
+            return playerManager.weaponBag;
+        }
+    }
+
     public bool InputDisabled {
         get {
             return GameManager.Instance.IsGameFreezed;
         }
     }
 
-    private void Awake () {
-        weapon = GetComponentInChildren<BaseWeapon> ();
+    public void NextWeapon () {
+        WeaponBag.NextWeapon ();
+    }
+
+    public void PreviousWeapon () {
+        WeaponBag.PreviousWeapon ();
     }
 
     public void Move (float horizontal, float vertical) {
@@ -67,13 +76,13 @@ public class PlayerControl : MonoBehaviour {
     public void FireDown () {
         if (InputDisabled) return;
 
-        weapon.OnShootDown (fireVec, transform);
+        WeaponBag.EquippedWeapon.OnShootDown (fireVec, transform);
     }
 
     public void FireUp () {
         if (InputDisabled) return;
 
-        weapon.OnShootUp (fireVec, transform);
+        WeaponBag.EquippedWeapon.OnShootUp (fireVec, transform);
     }
 
     public void UsePowerup (string name) {

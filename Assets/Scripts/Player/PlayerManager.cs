@@ -4,6 +4,7 @@ public class PlayerManager : GameEntity {
     public GameoverScreen gameoverScreen;
     public Inventory inventory;
     public PlayerCanvas playerCanvas;
+    public WeaponBag weaponBag;
 
     public float health;
     public float score;

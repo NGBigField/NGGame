@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlasmaChargeWeapon : BaseWeapon {
     private float chargeStartTime;
+
+    public override string Name => "Plasma";
+
     public override void OnShootDown (Vector3 fireVec, Transform playerTransform) {
         chargeStartTime = Time.time;
     }
