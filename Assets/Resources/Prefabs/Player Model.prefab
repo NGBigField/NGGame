@@ -247,7 +247,7 @@ MonoBehaviour:
   gameoverScreen: {fileID: 0}
   inventory: {fileID: 7120590524962944225}
   playerCanvas: {fileID: 0}
-  weaponControl: {fileID: 1524828795451540292}
+  weaponControl: {fileID: 0}
   health: 0
   score: 0
 --- !u!114 &7120590524962944226
@@ -320,32 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e92f1d6ccd746fcad0f7424a7d5a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1524828795451540292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7739931081978776989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c191102f3cc2484ab26eb5f8159de5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7508257633914209169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7739931081978776989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aca4b7b1d2de490489a5447927349e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kickVelocityFactor: 2
-  bulletPrefab: {fileID: 0}
 --- !u!1001 &2394734342563517108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,12 +419,6 @@ PrefabInstance:
 --- !u!4 &7046372653088930816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4679926839941607092, guid: 2c76a0b8b16b04bdd9cad000500f5aa3,
-    type: 3}
-  m_PrefabInstance: {fileID: 2394734342563517108}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7739931081978776989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5355356642147098409, guid: 2c76a0b8b16b04bdd9cad000500f5aa3,
     type: 3}
   m_PrefabInstance: {fileID: 2394734342563517108}
   m_PrefabAsset: {fileID: 0}

@@ -2849,6 +2849,11 @@ PrefabInstance:
       propertyPath: gameoverScreen
       value: 
       objectReference: {fileID: 2612084597730124908}
+    - target: {fileID: 7120590524962944237, guid: 4187ebb1039f4504f834ebd494d0194b,
+        type: 3}
+      propertyPath: weaponControl
+      value: 
+      objectReference: {fileID: 1076141703733157040}
     - target: {fileID: 7120590524962944226, guid: 4187ebb1039f4504f834ebd494d0194b,
         type: 3}
       propertyPath: audioSource
@@ -2861,6 +2866,18 @@ PrefabInstance:
       objectReference: {fileID: 5450688331090623486}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4187ebb1039f4504f834ebd494d0194b, type: 3}
+--- !u!114 &1076141703733157040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2853855404068409391, guid: 4187ebb1039f4504f834ebd494d0194b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2987530817106611359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c191102f3cc2484ab26eb5f8159de5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5450688329181935741 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7120590524962944226, guid: 4187ebb1039f4504f834ebd494d0194b,
