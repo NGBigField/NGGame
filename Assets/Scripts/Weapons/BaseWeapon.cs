@@ -14,7 +14,7 @@ public abstract class BaseWeapon : MonoBehaviour {
     /// Shoots the bullet by instantiating it's bullet prefab.
     /// </summary>
     /// <param name="fireVec"></param>
-    protected void Shoot (Vector3 fireVec, Transform playerTransform) {
+    protected virtual void Shoot (Vector3 fireVec, Transform playerTransform) {
         /* Create Bullet  */
         var bullet = Instantiate (bulletPrefab, playerTransform.position + Vector3.up * 0.8f, Quaternion.identity);
         var bulletRigidbody = bullet.GetComponent<Rigidbody> ();

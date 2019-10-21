@@ -25,9 +25,9 @@ public class PlayerControl : MonoBehaviour {
 
     private float fireAngle = 15f;
 
-    public WeaponBag WeaponBag {
+    public WeaponControl WeaponControl {
         get {
-            return playerManager.weaponBag;
+            return playerManager.weaponControl;
         }
     }
 
@@ -38,11 +38,11 @@ public class PlayerControl : MonoBehaviour {
     }
 
     public void NextWeapon () {
-        WeaponBag.NextWeapon ();
+        WeaponControl.NextWeapon ();
     }
 
     public void PreviousWeapon () {
-        WeaponBag.PreviousWeapon ();
+        WeaponControl.PreviousWeapon ();
     }
 
     public void Move (float horizontal, float vertical) {
@@ -76,13 +76,13 @@ public class PlayerControl : MonoBehaviour {
     public void FireDown () {
         if (InputDisabled) return;
 
-        WeaponBag.EquippedWeapon.OnShootDown (fireVec, transform);
+        WeaponControl.EquippedWeapon.OnShootDown (fireVec, transform);
     }
 
     public void FireUp () {
         if (InputDisabled) return;
 
-        WeaponBag.EquippedWeapon.OnShootUp (fireVec, transform);
+        WeaponControl.EquippedWeapon.OnShootUp (fireVec, transform);
     }
 
     public void UsePowerup (string name) {

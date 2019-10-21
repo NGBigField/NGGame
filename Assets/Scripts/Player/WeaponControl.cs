@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WeaponBag : MonoBehaviour {
+public class WeaponControl : MonoBehaviour {
     private BaseWeapon equippedWeapon;
 
     public BaseWeapon EquippedWeapon {
@@ -25,7 +25,7 @@ public class WeaponBag : MonoBehaviour {
     }
 
     private void Awake () {
-        equippedWeapon = GetComponentInChildren<BaseWeapon> ();
+        equippedWeapon = GetComponent<BaseWeapon> ();
     }
 
     public BaseWeapon[] GetWeapons () {
