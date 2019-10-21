@@ -12,6 +12,15 @@ public abstract class BaseInventoryItem : MonoBehaviour {
         playerManager = GetComponent<PlayerManager> ();
     }
 
+    /// <summary>
+    /// Returns true if the user can pickup this item.
+    /// </summary>
+    /// <param name="player"></param>
+    /// <returns></returns>
+    public bool CanPickup (PlayerManager player) {
+        return true;
+    }
+
     protected virtual void Start () {
 
     }
