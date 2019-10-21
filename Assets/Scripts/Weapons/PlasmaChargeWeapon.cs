@@ -6,6 +6,10 @@ public class PlasmaChargeWeapon : BaseWeapon {
 
     public override string Name => "Plasma";
 
+    private void Awake () {
+        bulletPrefab = Resources.Load<GameObject> ("Prefabs/PlasmaChargeBullet");
+    }
+
     protected override void Shoot (Vector3 fireVec, Transform playerTransform) {
 
     }

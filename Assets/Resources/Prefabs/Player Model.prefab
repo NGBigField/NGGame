@@ -332,6 +332,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c191102f3cc2484ab26eb5f8159de5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7508257633914209169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7739931081978776989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aca4b7b1d2de490489a5447927349e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kickVelocityFactor: 2
+  bulletPrefab: {fileID: 0}
 --- !u!1001 &2394734342563517108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,6 +422,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216466665242198985, guid: 2c76a0b8b16b04bdd9cad000500f5aa3,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 220559422873728284, guid: 2c76a0b8b16b04bdd9cad000500f5aa3,
         type: 3}
