@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BulletLogic : MonoBehaviour {
+public class SimpleBulletLogic : MonoBehaviour {
     protected virtual void Update () {
         if (transform.position.y < -5.0)
             Destroy (this.gameObject);

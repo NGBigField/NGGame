@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c191102f3cc2484ab26eb5f8159de5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2216466665242198985
+--- !u!114 &5979040987022616353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,8 +25,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickVelocityFactor: 2
-  bulletPrefab: {fileID: 537597356750841749, guid: 13406ca2a03c6d2429ea56ffa3deb330,
-    type: 3}
+  bulletPrefab: {fileID: 0}
 --- !u!1 &6301365803613441598
 GameObject:
   m_ObjectHideFlags: 0

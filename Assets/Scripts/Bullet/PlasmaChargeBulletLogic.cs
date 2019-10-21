@@ -1,3 +1,3 @@
-﻿public class PlasmaChargeBulletLogic : BulletLogic {
+﻿public class PlasmaChargeBulletLogic : SimpleBulletLogic {
 
 }
