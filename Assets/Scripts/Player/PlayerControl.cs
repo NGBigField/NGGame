@@ -17,6 +17,8 @@ public class PlayerControl : MonoBehaviour {
 
     public GameObject explosionPrefab;
 
+    public PlayerManager playerManager;
+
     public float kickVelocityFactor = 2f;
     public float force = 20.0f;
     private float jumpVelocity = 6.7f;

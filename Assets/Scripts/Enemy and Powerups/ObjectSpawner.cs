@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour {
-    private GameObject _spawnObject;
-    private GameObject _spawnArea;
-    private float _safeRadius;
+    private GameObject spawnObject;
+    private GameObject spawnArea;
+    private float safeRadius;
 
-    private float _spawnDelay;
+    private float spawnDelay;
 
-    private float _lastSpawnTime;
+    private float lastSpawnTime;
     // Start is called before the first frame update
     void Start () {
 
@@ -15,20 +15,22 @@ public class ObjectSpawner : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        _lastSpawnTime += Time.deltaTime;
-        if (_lastSpawnTime >= _spawnDelay) {
-            Vector3 randomPosition = getRandomPosition_recursive (_spawnArea, _safeRadius);
+        if (!spawnArea) return;
 
-            Instantiate (_spawnObject, randomPosition, Quaternion.identity);
+        lastSpawnTime += Time.deltaTime;
+        if (lastSpawnTime >= spawnDelay) {
+            Vector3 randomPosition = getRandomSpawnPosition (spawnArea, safeRadius);
 
-            _lastSpawnTime = 0.0f;
+            Instantiate (spawnObject, randomPosition, Quaternion.identity);
+
+            lastSpawnTime = 0.0f;
         }
     }
 
     //Finds a random position for spawning that allow for a safeRadius around player:
-    private Vector3 getRandomPosition_recursive (GameObject spawnArea, float safeRadius) {
+    private Vector3 getRandomSpawnPosition (GameObject spawnArea, float safeRadius) {
         float x = Random.Range (spawnArea.transform.position.x - spawnArea.transform.localScale.x / 2, spawnArea.transform.position.x + spawnArea.transform.localScale.x / 2);
-        float y = spawnArea.transform.position.y + spawnArea.transform.localScale.y / 2;
+        float y = spawnArea.transform.position.y + spawnArea.transform.localScale.y + spawnObject.transform.localScale.y;
         float z = Random.Range (spawnArea.transform.position.z - spawnArea.transform.localScale.z / 2, spawnArea.transform.position.z + spawnArea.transform.localScale.z / 2);
 
         Vector3 result = new Vector3 (x, y, z);
@@ -36,7 +38,7 @@ public class ObjectSpawner : MonoBehaviour {
 
         if (distance.magnitude < safeRadius) // if not allowing for a safe radius
         {
-            result = getRandomPosition_recursive (spawnArea, safeRadius); //try again recursively
+            result = getRandomSpawnPosition (spawnArea, safeRadius); //try again recursively
         }
 
         return result;
@@ -44,10 +46,10 @@ public class ObjectSpawner : MonoBehaviour {
 
     //C'tor:
     public void set (ref GameObject spawnObject, ref GameObject spawnArea, float safeRadius, float spawnDelay) {
-        this._spawnArea = spawnArea;
-        this._safeRadius = safeRadius;
-        this._spawnDelay = spawnDelay;
-        this._spawnObject = spawnObject;
+        this.spawnArea = spawnArea;
+        this.safeRadius = safeRadius;
+        this.spawnDelay = spawnDelay;
+        this.spawnObject = spawnObject;
     }
 
 }

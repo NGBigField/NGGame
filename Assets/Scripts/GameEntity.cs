@@ -34,4 +34,13 @@ public class GameEntity : MonoBehaviour {
         animator.runtimeAnimatorController = spawnController;
         audioSource.PlayOneShot (spawnSound);
     }
+
+    /// <summary>
+    ///  Destroys the game objecct with the specified delay.!-- If withDissolveAnimation is set, dissolve animation is being played.
+    /// </summary>
+    /// <param name="delay"></param>
+    /// <param name="withDissolveAnimation"></param>
+    public virtual void Kill (float delay = 0, bool withDissolveAnimation = true) {
+
+    }
 }

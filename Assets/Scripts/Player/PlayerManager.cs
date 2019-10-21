@@ -1,13 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerManager : GameEntity {
     public GameoverScreen gameoverScreen;
-
     public Inventory inventory;
     public PlayerCanvas playerCanvas;
-    public Rigidbody rb;
-    //public Vector3 startingPoint = new Vector3(0.0f, 10f, -80.0f);
 
     public float health;
     public float score;
@@ -54,7 +50,6 @@ public class PlayerManager : GameEntity {
     }
 
     public void KillPlayer () {
-
         health = 0.0f;
         playerCanvas.HideCrosshair ();
 
