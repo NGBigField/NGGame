@@ -19,9 +19,7 @@ public class ExplosionLogic : MonoBehaviour
     void Start()
     {
         // go through each enemy, and add explosion force
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        foreach (var enemy in enemies)
+        foreach (var enemy in GameUtils.GetAllEnemies())
         {
             var rigidBody = enemy.GetComponent<Rigidbody>();
             rigidBody.AddExplosionForce(explosionForce, transform.position, finalExplosionRadius);
@@ -42,7 +40,7 @@ public class ExplosionLogic : MonoBehaviour
             if (alphaValue > 0.0f && curExplosionRadius > (finalExplosionRadius / 5))
             {
 
-                alphaValue = alphaValue*alphaIncrementRatio;
+                alphaValue = alphaValue * alphaIncrementRatio;
                 alphaValue = Mathf.Max(0, alphaValue);
             }
             meshRenderer.material.SetFloat("_Opacity", alphaValue); //update Opacity
