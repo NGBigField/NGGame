@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5805548241610530622}
   - component: {fileID: 4524705263232164749}
   m_Layer: 0
-  m_Name: Powerup
+  m_Name: ExplosionPowerup
   m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.431
+  m_Volume: 1
   m_Pitch: 0.74
   Loop: 0
   Mute: 0
@@ -167,7 +167,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 176
   DopplerLevel: 1
-  MinDistance: 0.88993955
+  MinDistance: 3
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -203,7 +203,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.496
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

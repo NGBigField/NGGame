@@ -36,9 +36,8 @@ public class PlasmaChargeWeapon : BaseWeapon {
     public override void OnShootUp (Vector3 fireVec, Transform playerTransform) {
         var deltaTime = Time.time - chargeStartTime;
 
-        /* Give Bullet Speed */
-        var bulletRigidbody = chargedBullet.GetComponent<Rigidbody> ();
-        bulletRigidbody.AddForce (fireVec * kickVelocityFactor, ForceMode.Impulse);
+        var bulletLogic = chargedBullet.GetComponent<BulletLogic>();
+        bulletLogic.LaunchBullet(fireVec * kickVelocityFactor);
 
         chargedBullet = null;
     }
