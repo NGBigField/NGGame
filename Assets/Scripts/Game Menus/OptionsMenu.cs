@@ -1,36 +1,50 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class OptionsMenu : MonoBehaviour {
+public class OptionsMenu : MonoBehaviour
+{
+    public EventSystem eventSystem;
+
     private GameSettings gameSettings { get { return GameSettings.Instance; } }
 
-    private void Start () {
-        UpdateControlModeText ();
-        UpdateEnablePostProcessingText ();
+    private void Start()
+    {
+        UpdateControlModeText();
+        UpdateEnablePostProcessingText();
     }
 
-    public void ChangeControlMode () {
+
+    private void OnEnable()
+    {
+        eventSystem.SetSelectedGameObject(GameObject.Find("ControlsButton"));
+    }
+    public void ChangeControlMode()
+    {
         var controlMode = gameSettings.controlMode;
         if (controlMode == GameControlMode.Joystick && SystemInfo.supportsGyroscope) controlMode = GameControlMode.Gyroscope;
         else controlMode = GameControlMode.Joystick;
         gameSettings.controlMode = controlMode;
-        gameSettings.SaveSettings ();
-        UpdateControlModeText ();
+        gameSettings.SaveSettings();
+        UpdateControlModeText();
     }
 
-    private void UpdateControlModeText () {
-        var controlsButtonText = transform.Find ("ControlsButton").Find ("Text").GetComponent<TextMeshProUGUI> ();
-        controlsButtonText.text = string.Format ("CONTROLS: {0}", (gameSettings.controlMode == GameControlMode.Gyroscope ? "Gyroscope" : @"Joystick\Mouse"));
+    private void UpdateControlModeText()
+    {
+        var controlsButtonText = transform.Find("ControlsButton").Find("Text").GetComponent<TextMeshProUGUI>();
+        controlsButtonText.text = string.Format("CONTROLS: {0}", (gameSettings.controlMode == GameControlMode.Gyroscope ? "Gyroscope" : @"Joystick\Mouse"));
     }
 
-    public void TogglePostProcessing () {
+    public void TogglePostProcessing()
+    {
         gameSettings.enablePostProcessing = !gameSettings.enablePostProcessing;
-        gameSettings.SaveSettings ();
-        UpdateEnablePostProcessingText ();
+        gameSettings.SaveSettings();
+        UpdateEnablePostProcessingText();
     }
 
-    private void UpdateEnablePostProcessingText () {
-        var enablePostProcessingText = transform.Find ("EnablePostProcessing").Find ("Text").GetComponent<TextMeshProUGUI> ();
-        enablePostProcessingText.text = string.Format ("Post Processing: {0}", (gameSettings.enablePostProcessing ? "Enabled" : "Disabled"));
+    private void UpdateEnablePostProcessingText()
+    {
+        var enablePostProcessingText = transform.Find("EnablePostProcessing").Find("Text").GetComponent<TextMeshProUGUI>();
+        enablePostProcessingText.text = string.Format("Post Processing: {0}", (gameSettings.enablePostProcessing ? "Enabled" : "Disabled"));
     }
 }

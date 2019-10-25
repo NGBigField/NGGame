@@ -2109,7 +2109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 904328857}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1289757288
@@ -2555,6 +2555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c08d8a16c50ec40ac503361a6ddbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1289757287}
 --- !u!1 &1913501791
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,3 +2887,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e3623e2c5486f4dae9e58a7c0f45e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1289757287}
