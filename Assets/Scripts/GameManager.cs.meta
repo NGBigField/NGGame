@@ -8,7 +8,7 @@ MonoImporter:
       type: 3}
   - powerupPrefab: {instanceID: 0}
   - EnemyArea: {instanceID: 0}
-  executionOrder: 0
+  executionOrder: -50
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

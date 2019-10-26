@@ -26,7 +26,7 @@ public class PlasmaChargeBulletLogic : SimpleBulletLogic
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
 
-        explosionPrefab = Resources.Load<GameObject>("Effects/EffectExamples/Fire & Explosion Effects/Prefabs/SmallExplosion");
+        explosionPrefab = GameRepository.Instance.smallExplosionPrefab;
     }
 
     public override void LaunchBullet(Vector3 force)

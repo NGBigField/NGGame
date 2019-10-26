@@ -1,7 +1,8 @@
 /* Every Power up is only different with how it changes the screen when used: */
 using UnityEngine;
 
-public class ExplosionPowerup : BasePowerup {
+public class ExplosionPowerup : BasePowerup
+{
     public static string NAME = "Explosion";
 
     public GameObject explosionPrefab;
@@ -12,28 +13,33 @@ public class ExplosionPowerup : BasePowerup {
 
     public override bool Reusable => false;
 
-    protected override void Awake () {
-        base.Awake ();
-        explosionPrefab = Resources.Load<GameObject> ("Prefabs/Explosion");
+    protected override void Awake()
+    {
+        base.Awake();
+        explosionPrefab = GameRepository.Instance.explosionPowerupEffectPrefab;
     }
 
-    protected override void Start () {
+    protected override void Start()
+    {
         // When this powerup is added, simply show the explosion icon
-        SetIconVisibility (true);
+        SetIconVisibility(true);
     }
 
-    private void SetIconVisibility (bool visible) {
+    private void SetIconVisibility(bool visible)
+    {
         // Set it to active or inactive accordingly
-        playerManager.playerCanvas.explosionIcon.SetActive (visible);
+        playerManager.playerCanvas.explosionIcon.SetActive(visible);
     }
 
-    public override void Use () {
-        Instantiate (explosionPrefab, transform.position, Quaternion.identity);
-        base.Use ();
+    public override void Use()
+    {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        base.Use();
     }
 
-    protected override void OnDestroy () {
-        SetIconVisibility (false);
-        base.OnDestroy ();
+    protected override void OnDestroy()
+    {
+        SetIconVisibility(false);
+        base.OnDestroy();
     }
 }

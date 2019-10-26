@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8201934742733078269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8201934742733078268}
+  - component: {fileID: 8201934742733078267}
+  - component: {fileID: 8201934742733078266}
+  - component: {fileID: 7814204993096933827}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8201934742733078268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201934742733078269}
+  m_LocalRotation: {x: -0.11556605, y: 0.66925454, z: -0.10650007, w: -0.7262235}
+  m_LocalPosition: {x: 90.99438, y: 26.898642, z: -9.624952}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8201934742733078267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201934742733078269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecda69aec957b64fa16fe55371dc429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGameOver: 0
+  isGamePaused: 0
+  gameRepository: {fileID: 7814204993096933827}
+--- !u!114 &8201934742733078266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201934742733078269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da835e25e65848ffb6fdc120860904a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7814204993096933827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201934742733078269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e00ce5ff2b61747869494fcbff578e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSound: {fileID: 8300000, guid: 0f6da038eb9fc42e589fe1f71ca824ae, type: 3}
+  spawnController: {fileID: 9100000, guid: 3996c083f89333044a90779a49d9034c, type: 2}
+  smallExplosionPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3,
+    type: 3}
+  lifePowerupPrefab: {fileID: 815531873400054961, guid: 09f0f235b06bc024984cdba737c2e832,
+    type: 3}
+  enemyPrefab: {fileID: 356653835276615647, guid: 01bd43cba6413ca448d37c7d42d3be01,
+    type: 3}
+  explosionPowerupPrefab: {fileID: 8344410936663697301, guid: 405df3b0d3b8e62498a6c3e69a0fe715,
+    type: 3}
+  lifePrefab: {fileID: 0}
+  plasmaBulletPrefab: {fileID: 2296495422454914438, guid: 57c9ca27042c04c1ba26d5b4a2f19f08,
+    type: 3}
+  simpleWeaponPrefab: {fileID: 537597356750841749, guid: 13406ca2a03c6d2429ea56ffa3deb330,
+    type: 3}

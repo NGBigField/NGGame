@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class EnemyAreaScript : MonoBehaviour {
+public class EnemyAreaScript : MonoBehaviour
+{
     public GameObject enemyPrefab;
     public GameObject explosionPowerupPrefab;
     public GameObject lifePowerupPrefab;
@@ -9,45 +10,51 @@ public class EnemyAreaScript : MonoBehaviour {
     private ObjectSpawner lifePowerupSpawner;
     private bool _isSpawnEnemies = false;
 
-    private void Awake () {
-        lifePowerupPrefab = Resources.Load<GameObject> ("Prefabs/LifePowerup");
-        enemyPrefab = Resources.Load<GameObject> ("Prefabs/Enemy");
-        explosionPowerupPrefab = Resources.Load<GameObject> ("Prefabs/ExplosionPowerup");
+    private void Awake()
+    {
+        lifePowerupPrefab = GameRepository.Instance.lifePowerupPrefab;
+        enemyPrefab = GameRepository.Instance.enemyPrefab;
+        explosionPowerupPrefab = GameRepository.Instance.explosionPowerupPrefab;
     }
 
     // Start is called before the first frame update
-    void Start () {
+    void Start()
+    {
         _isSpawnEnemies = false;
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
     }
 
-    public bool isSpawnEnemies () {
+    public bool isSpawnEnemies()
+    {
         return _isSpawnEnemies;
     }
 
-    public void restartGame () {
+    public void restartGame()
+    {
         _isSpawnEnemies = false;
-        Destroy (enemySpawner);
-        Destroy (explosionPowerupSpawner);
-        Destroy (lifePowerupSpawner);
+        Destroy(enemySpawner);
+        Destroy(explosionPowerupSpawner);
+        Destroy(lifePowerupSpawner);
     }
 
-    private void OnCollisionStay (Collision other) {
+    private void OnCollisionStay(Collision other)
+    {
         if (_isSpawnEnemies == false && other.gameObject.tag == "Player") //On first land
         {
             var enemyArea = this.gameObject;
 
-            enemySpawner = gameObject.AddComponent (typeof (ObjectSpawner)) as ObjectSpawner;
-            explosionPowerupSpawner = gameObject.AddComponent (typeof (ObjectSpawner)) as ObjectSpawner;
-            lifePowerupSpawner = gameObject.AddComponent (typeof (ObjectSpawner)) as ObjectSpawner;
+            enemySpawner = gameObject.AddComponent(typeof(ObjectSpawner)) as ObjectSpawner;
+            explosionPowerupSpawner = gameObject.AddComponent(typeof(ObjectSpawner)) as ObjectSpawner;
+            lifePowerupSpawner = gameObject.AddComponent(typeof(ObjectSpawner)) as ObjectSpawner;
 
-            enemySpawner.set (ref enemyPrefab, ref enemyArea, 8.0f, 4f);
-            explosionPowerupSpawner.set (ref explosionPowerupPrefab, ref enemyArea, 3.0f, 16.0f);
-            lifePowerupSpawner.set (ref lifePowerupPrefab, ref enemyArea, 4.0f, 26.0f);
+            enemySpawner.set(ref enemyPrefab, ref enemyArea, 8.0f, 4f);
+            explosionPowerupSpawner.set(ref explosionPowerupPrefab, ref enemyArea, 3.0f, 16.0f);
+            lifePowerupSpawner.set(ref lifePowerupPrefab, ref enemyArea, 4.0f, 26.0f);
 
             _isSpawnEnemies = true; //stop making more spawning Objects
         }
