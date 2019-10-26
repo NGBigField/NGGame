@@ -23,12 +23,8 @@ public class ExplosionPowerup : BasePowerup {
     }
 
     private void SetIconVisibility (bool visible) {
-        // TODO: Generate icon on the fly, instead of setting it staticly on the canvas
-        var canvasIcon = GameObject.Find ("ExplosionIcon");
-        if (!canvasIcon) return;
-
-        var explosionIconScript = canvasIcon.GetComponent<ExplosionIcon> ();
-        if (explosionIconScript) explosionIconScript.SetVisible (visible);
+        // Set it to active or inactive accordingly
+        playerManager.playerCanvas.explosionIcon.SetActive (visible);
     }
 
     public override void Use () {
