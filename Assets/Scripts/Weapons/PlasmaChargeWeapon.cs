@@ -10,13 +10,23 @@ public class PlasmaChargeWeapon : BaseWeapon {
 
     private void Awake () {
         bulletPrefab = Resources.Load<GameObject> ("Prefabs/PlasmaChargeBullet");
+        bullets = 3;
     }
 
     protected override void Shoot (Vector3 fireVec, Transform playerTransform) {
+        if (chargedBullet) {
+            var deltaTime = Time.time - chargeStartTime;
 
+            var bulletLogic = chargedBullet.GetComponent<BulletLogic> ();
+            bulletLogic.LaunchBullet (fireVec * kickVelocityFactor);
+
+            chargedBullet = null;
+            --bullets;
+        }
     }
 
     public override void OnShootDown (Vector3 fireVec, Transform playerTransform) {
+        if (!CanShoot) return;
         chargeStartTime = Time.time;
         this.playerTransform = playerTransform;
 
@@ -34,11 +44,6 @@ public class PlasmaChargeWeapon : BaseWeapon {
     }
 
     public override void OnShootUp (Vector3 fireVec, Transform playerTransform) {
-        var deltaTime = Time.time - chargeStartTime;
-
-        var bulletLogic = chargedBullet.GetComponent<BulletLogic>();
-        bulletLogic.LaunchBullet(fireVec * kickVelocityFactor);
-
-        chargedBullet = null;
+        Shoot (fireVec, playerTransform);
     }
 }

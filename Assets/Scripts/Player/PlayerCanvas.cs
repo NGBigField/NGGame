@@ -13,6 +13,9 @@ public class PlayerCanvas : MonoBehaviour {
     public Text scoreText;
 
     public HealthBar healthBar;
+
+    public WeaponIndicator weaponIndicator;
+
     public GameObject explosionIcon;
 
     private void Awake () {

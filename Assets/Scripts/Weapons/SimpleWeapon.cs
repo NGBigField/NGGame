@@ -5,6 +5,7 @@ public class SimpleWeapon : BaseWeapon {
 
     private void Awake () {
         bulletPrefab = Resources.Load<GameObject> ("Prefabs/SimpleWeaponBullet");
+        bullets = -1;
     }
 
     public override void OnShootDown (Vector3 fireVec, Transform playerTransform) {

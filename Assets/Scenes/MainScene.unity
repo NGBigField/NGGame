@@ -285,7 +285,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.06640625, y: 0.11328125, z: 0.01953125, w: -0.03125}
+  m_BoundingSphereOverride: {x: 0, y: 0.3828125, z: 0.05078125, w: -0.05859375}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -488,6 +488,76 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6073362683202771023, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 164.3999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6073362683202771023, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36.69995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076141703733157040, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: weaponIndicator
+      value: 
+      objectReference: {fileID: 1362314522}
+    - target: {fileID: 6172035920722550778, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172035920722550778, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172035920722550778, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172035920722550778, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172035920722550778, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010010639598773624, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010010639598773624, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010010639598773624, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010010639598773624, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010010639598773624, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545850056015496620, guid: 904fd25629390794d8a9cb7d92718690,
+        type: 3}
+      propertyPath: weaponControl
+      value: 
+      objectReference: {fileID: 1462235212}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 904fd25629390794d8a9cb7d92718690, type: 3}
 --- !u!1 &1041297318
@@ -556,6 +626,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1362314522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3545850056015496620, guid: 904fd25629390794d8a9cb7d92718690,
+    type: 3}
+  m_PrefabInstance: {fileID: 372554188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62919e5fdd28c4d1bb44a9906b0120b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1462235212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1076141703733157040, guid: 904fd25629390794d8a9cb7d92718690,
+    type: 3}
+  m_PrefabInstance: {fileID: 372554188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c191102f3cc2484ab26eb5f8159de5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1503513007
 GameObject:
   m_ObjectHideFlags: 0
