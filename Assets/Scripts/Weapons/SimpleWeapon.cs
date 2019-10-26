@@ -6,8 +6,9 @@ public class SimpleWeapon : BaseWeapon
 
     public override string IconPath => "Icons/S_Forward_ray";
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         bulletPrefab = GameRepository.Instance.simpleWeaponPrefab;
         bullets = -1;
     }
