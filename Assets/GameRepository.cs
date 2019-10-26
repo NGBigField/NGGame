@@ -22,6 +22,8 @@ public class GameRepository : MonoBehaviour
 
     public GameObject simpleWeaponPrefab;
 
+    public AudioClip emptyClipSound;
+
     private void Awake()
     {
         Instance = this;

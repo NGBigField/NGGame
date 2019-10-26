@@ -11,8 +11,9 @@ public class PlasmaChargeWeapon : BaseWeapon
 
     public override string IconPath => "Icons/S_royal_hit";
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         bulletPrefab = GameRepository.Instance.plasmaBulletPrefab;
         bullets = 3;
     }
@@ -29,6 +30,8 @@ public class PlasmaChargeWeapon : BaseWeapon
             chargedBullet = null;
             --bullets;
         }
+        else if (IsMagazineEmpty)
+            audioSource.PlayOneShot(emptyClipSound);
     }
 
     public override void OnShootDown(Vector3 fireVec, Transform playerTransform)
