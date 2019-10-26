@@ -12,10 +12,6 @@ public class TouchArea : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
     public CameraMovement cameraMovement;
     public float movementSensitivity = 0.05f;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-
-    }
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -30,5 +26,10 @@ public class TouchArea : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
     {
         if (GameManager.Instance.IsGameFreezed) return;
         if (!eventData.dragging) playerControl.FireDown();
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (GameManager.Instance.IsGameFreezed) return;
+        if (!eventData.dragging) playerControl.FireUp();
     }
 }
