@@ -17,12 +17,16 @@ public class PlasmaChargeBulletLogic : SimpleBulletLogic
 
     public AudioClip explosionSound;
 
+    public GameObject explosionPrefab;
+
     private AudioSource audioSource;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
+
+        explosionPrefab = Resources.Load<GameObject>("Effects/EffectExamples/Fire & Explosion Effects/Prefabs/SmallExplosion");
     }
 
     public override void LaunchBullet(Vector3 force)
@@ -48,15 +52,21 @@ public class PlasmaChargeBulletLogic : SimpleBulletLogic
             // True if the bullet reached it's maximum size
             var isMaxScale = currScale >= maxScale;
 
-            // Just a an explosion
+            // Create the explosion effect
+            var explosionEffect = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+            // Play the explosion sound
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position, 1.0f);
+
+            // Create an explosion for all of the enemies nearby
             foreach (var enemy in GameUtils.GetAllEnemies())
             {
                 var rigidBody = enemy.GetComponent<Rigidbody>();
                 rigidBody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }
 
-            // Play the explosion sound
-            AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            // Destory the explosion effect
+            Destroy(explosionEffect, 1.5f);
 
             // Destroy the bullet
             Destroy(gameObject);
