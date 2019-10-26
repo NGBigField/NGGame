@@ -20,6 +20,7 @@ public class PlasmaChargeWeapon : BaseWeapon
 
     protected override void Shoot(Vector3 fireVec, Transform playerTransform)
     {
+        // If there is already a charged bullet
         if (chargedBullet)
         {
             var deltaTime = Time.time - chargeStartTime;
@@ -29,19 +30,11 @@ public class PlasmaChargeWeapon : BaseWeapon
 
             chargedBullet = null;
             --bullets;
-        }
+        } // If the magazine is empty
         else if (IsMagazineEmpty)
             audioSource.PlayOneShot(emptyClipSound);
-    }
-
-    public override void OnShootDown(Vector3 fireVec, Transform playerTransform)
-    {
-        if (!CanShoot) return;
-        chargeStartTime = Time.time;
-        this.playerTransform = playerTransform;
-
-        /* Create Bullet  */
-        chargedBullet = Instantiate(bulletPrefab, GetBulletStartPosition(playerTransform), Quaternion.identity);
+        else // If there is no charged bullet, charge it
+            OnShootDown(fireVec, playerTransform);
     }
 
     private Vector3 GetBulletStartPosition(Transform playerTransform)
@@ -53,6 +46,25 @@ public class PlasmaChargeWeapon : BaseWeapon
     private void Update()
     {
         if (chargedBullet) chargedBullet.transform.position = GetBulletStartPosition(playerTransform);
+    }
+
+    public override void OnShootDown(Vector3 fireVec, Transform playerTransform)
+    {
+        // If we can't shoot or there is already a bullet charging, don't do anything
+        if (!CanShoot) return;
+
+        // There is already a bullet charged, call shoot-up to release it
+        if (chargedBullet)
+        {
+            OnShootUp(fireVec, playerTransform);
+            return;
+        }
+
+        chargeStartTime = Time.time;
+        this.playerTransform = playerTransform;
+
+        /* Create Bullet  */
+        chargedBullet = Instantiate(bulletPrefab, GetBulletStartPosition(playerTransform), Quaternion.identity);
     }
 
     public override void OnShootUp(Vector3 fireVec, Transform playerTransform)
