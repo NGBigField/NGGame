@@ -5,15 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
-  - Ground
-  - Score
-  - Bullet
-  - Enemy
-  - DamageBlink
-  - HealthBar
-  - EnemyArea
-  - Powerup
-  - Player Group
   layers:
   - Default
   - TransparentFX
