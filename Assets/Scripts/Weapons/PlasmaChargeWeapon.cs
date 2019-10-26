@@ -45,7 +45,9 @@ public class PlasmaChargeWeapon : BaseWeapon {
     public override void OnShootDown (Vector3 fireVec, Transform playerTransform) {
         // If we can't shoot or there is already a bullet charging, don't do anything
         if (!CanShoot) {
-            audioSource.PlayOneShot (emptyClipSound);
+            // FIXME: Move this to the BaseWeapon
+            // On mobile with touch screen, empty clip should be played as onShootDown is always called
+            if (Input.touchSupported) audioSource.PlayOneShot (emptyClipSound);
             return;
         }
 

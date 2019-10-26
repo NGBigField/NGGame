@@ -6,11 +6,14 @@ public enum RunningPlatformType {
 }
 
 public class PlatformManager : MonoBehaviour {
+    public static PlatformManager Instance;
+
     private RunningPlatformType runningPlatform;
 
     public RunningPlatformType RunningPlatform { get { return runningPlatform; } }
 
     private void Awake () {
+        Instance = this;
         DetectPlatform ();
         DoPlatformModifications (runningPlatform);
     }
