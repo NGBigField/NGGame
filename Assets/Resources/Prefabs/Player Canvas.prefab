@@ -411,7 +411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &775049084244658904
 RectTransform:
   m_ObjectHideFlags: 0
@@ -428,8 +428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -130, y: 0}
-  m_SizeDelta: {x: 62.200012, y: 62.2}
+  m_AnchoredPosition: {x: -140.1, y: 0}
+  m_SizeDelta: {x: 70.7, y: 70.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &775049084244658906
 CanvasRenderer:
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 573bf1e0c1b330d41b0d036717452534, type: 3}
+  m_Texture: {fileID: 2800000, guid: e3d72b1724a89604fad7dc2c671426ae, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2375,7 +2375,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2573,7 +2573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62919e5fdd28c4d1bb44a9906b0120b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponControl: {fileID: 0}
   weaponName: {fileID: 1495831528111824747}
   weaponBullets: {fileID: 5719989831876437481}
 --- !u!1 &6957049723844880246

@@ -8,6 +8,8 @@ public class PlasmaChargeWeapon : BaseWeapon {
 
     public override string Name => "Plasma";
 
+    public override string IconPath => "Icons/Tazo_2D/Icon/S_royal_hit";
+
     private void Awake () {
         bulletPrefab = Resources.Load<GameObject> ("Prefabs/PlasmaChargeBullet");
         bullets = 3;

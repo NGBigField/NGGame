@@ -3,6 +3,17 @@ using UnityEngine;
 public abstract class BaseWeapon : MonoBehaviour {
     public static readonly int INFINITE_BULLETS = -1;
     public abstract string Name { get; }
+    public abstract string IconPath { get; }
+
+    private Texture icon;
+    public Texture Icon {
+        get {
+            if (!icon && IconPath != null)
+                icon = Resources.Load<Texture> (IconPath);
+
+            return icon;
+        }
+    }
 
     protected int bullets;
 
