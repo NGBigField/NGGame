@@ -4,6 +4,11 @@ public abstract class BaseWeapon : MonoBehaviour
 {
     public abstract string Name { get; }
 
+    private void Awake()
+    {
+
+    }
+
     /// <summary>
     /// The power of the bullet shot from the weapon.
     /// </summary>
