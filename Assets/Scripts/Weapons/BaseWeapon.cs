@@ -63,7 +63,7 @@ public abstract class BaseWeapon : MonoBehaviour
     /// Shoots the bullet by instantiating it's bullet prefab.
     /// </summary>
     /// <param name="fireVec"></param>
-    protected virtual void Shoot(Vector3 fireVec, Transform playerTransform)
+    protected virtual void Shoot(Vector3 fireVec, Transform playerTransform, bool isTouch = false)
     {
         if (!CanShoot)
         {
@@ -84,11 +84,11 @@ public abstract class BaseWeapon : MonoBehaviour
     /// Called when shoot button is held down. On mobile touch interactions, this will be called everytime the user clicks on the screen without dragging.
     /// </summary>
     /// <param name="fireVec"></param>
-    public abstract void OnShootDown(Vector3 fireVec, Transform playerTransform);
+    public abstract void OnShootDown(Vector3 fireVec, Transform playerTransform, bool isTouch = false);
 
     /// <summary>
     /// Called when shoot button is released. On mobile touch interactions, this will not be called at all, please use OnShootDown to detect is a previous shoot was called to create logic like charging an attack.
     /// </summary>
     /// <param name="fireVec"></param>
-    public abstract void OnShootUp(Vector3 fireVec, Transform playerTransform);
+    public abstract void OnShootUp(Vector3 fireVec, Transform playerTransform, bool isTouch = false);
 }

@@ -13,12 +13,12 @@ public class SimpleWeapon : BaseWeapon
         bullets = -1;
     }
 
-    public override void OnShootDown(Vector3 fireVec, Transform playerTransform)
+    public override void OnShootDown(Vector3 fireVec, Transform playerTransform, bool isTouch = false)
     {
         Shoot(fireVec, playerTransform);
     }
 
-    public override void OnShootUp(Vector3 fireVec, Transform playerTransform)
+    public override void OnShootUp(Vector3 fireVec, Transform playerTransform, bool isTouch = false)
     {
 
     }
