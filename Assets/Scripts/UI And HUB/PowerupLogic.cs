@@ -8,15 +8,12 @@ public class PowerupLogic : GameEntity {
         if (other.tag == "Player") {
             /* Do nothing yet, just prepare the variables */
             var player = other;
-            //var playerInventory = player.GetComponent<Inventory>();
             var playerManager = player.GetComponent<PlayerManager> ();
             var audioSource = GetComponentInParent<AudioSource> ();
 
             /*Collect that item and play animation&sound only if playerInventory allowes it */
-            //if (playerInventory.AddItem(typeof(ExplosionPowerup))) //Successfully added that item
-            //if (playerInventory.AddItem(getPowerupTypeByName(powerupName)))
-            if (playerManager.PickPowerup (getPowerupTypeByName (powerupName))) {
-                animator.SetBool ("isDissolve", true);
+            if (playerManager.PickPowerup(getPowerupTypeByName (powerupName))) {
+                animator.SetBool("isDissolve", true);
                 audioSource.PlayOneShot (pickupSound);
                 Destroy (this.gameObject, (35f / 60f));
             }
