@@ -1,17 +1,23 @@
 using UnityEngine;
 
-public abstract class BaseInventoryItem : MonoBehaviour
-{
+public abstract class BaseInventoryItem : MonoBehaviour {
     public abstract bool Reusable { get; }
 
     protected Inventory inventory;
 
     protected PlayerManager playerManager;
 
-    protected virtual void Awake()
-    {
-        inventory = GetComponent<Inventory>();
-        playerManager = GetComponent<PlayerManager>();
+    protected virtual void Awake () {
+        inventory = GetComponent<Inventory> ();
+        playerManager = GetComponent<PlayerManager> ();
+    }
+
+    protected virtual void Start () {
+
+    }
+
+    protected virtual void Update () {
+        
     }
 
     /// <summary>
@@ -19,14 +25,8 @@ public abstract class BaseInventoryItem : MonoBehaviour
     /// </summary>
     /// <param name="player"></param>
     /// <returns></returns>
-    public bool CanPickup(PlayerManager player)
-    {
+    public bool CanPickup (PlayerManager player) {
         return true;
-    }
-
-    protected virtual void Start()
-    {
-
     }
 
     public abstract string ItemName { get; }
@@ -34,14 +34,12 @@ public abstract class BaseInventoryItem : MonoBehaviour
     /// <summary>
     /// Uses the item. If the item is not reusable, destroys the item and removes it from the inventory.
     /// </summary>
-    public virtual void Use()
-    {
-        if (!Reusable)
-        {
-            inventory.OnItemDestroy(this);
-            Destroy(this);
+    public virtual void Use () {
+        if (!Reusable) {
+            inventory.OnItemDestroy (this);
+            Destroy (this);
         }
     }
 
-    protected virtual void OnDestroy() { }
+    protected virtual void OnDestroy () { }
 }

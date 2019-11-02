@@ -47,7 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameOver: 0
   isGamePaused: 0
-  gameRepository: {fileID: 7814204993096933827}
 --- !u!114 &8201934742733078266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,8 +81,10 @@ MonoBehaviour:
     type: 3}
   explosionPowerupPrefab: {fileID: 8344410936663697301, guid: 405df3b0d3b8e62498a6c3e69a0fe715,
     type: 3}
-  lifePrefab: {fileID: 0}
+  explosionPowerupEffectPrefab: {fileID: 0}
   plasmaBulletPrefab: {fileID: 2296495422454914438, guid: 57c9ca27042c04c1ba26d5b4a2f19f08,
     type: 3}
   simpleWeaponPrefab: {fileID: 537597356750841749, guid: 13406ca2a03c6d2429ea56ffa3deb330,
     type: 3}
+  emptyClipSound: {fileID: 0}
+  blinkSound: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}

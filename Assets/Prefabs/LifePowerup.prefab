@@ -167,6 +167,9 @@ MonoBehaviour:
   spawnController: {fileID: 0}
   spawnSound: {fileID: 0}
   disableAutoSpawnAnimation: 1
+  pickTimeout: 15
+  blinkRenderer: {fileID: 2526855751017959855}
+  blinkEffect: {fileID: 0}
   powerupName: Life
   pickupSound: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
 --- !u!136 &5068501302027657385
@@ -305,6 +308,12 @@ PrefabInstance:
 --- !u!4 &2544167053378851087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013886378248, guid: 5a0537415d4017c4fad7a4986f502dc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2540179213779812359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2526855751017959855 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23000012539122088, guid: 5a0537415d4017c4fad7a4986f502dc1,
     type: 3}
   m_PrefabInstance: {fileID: 2540179213779812359}
   m_PrefabAsset: {fileID: 0}

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Animations;
 
-public class GameRepository : MonoBehaviour
-{
+public class GameRepository : MonoBehaviour {
     public static GameRepository Instance;
 
     public AudioClip spawnSound;
@@ -24,8 +23,9 @@ public class GameRepository : MonoBehaviour
 
     public AudioClip emptyClipSound;
 
-    private void Awake()
-    {
+    public AudioClip blinkSound;
+
+    private void Awake () {
         Instance = this;
     }
 }

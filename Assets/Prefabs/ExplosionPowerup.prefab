@@ -260,6 +260,9 @@ MonoBehaviour:
   spawnController: {fileID: 0}
   spawnSound: {fileID: 0}
   disableAutoSpawnAnimation: 1
+  pickTimeout: 15
+  blinkRenderer: {fileID: 8344410935883527481}
+  blinkEffect: {fileID: 0}
   powerupName: Explosion
   pickupSound: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
 --- !u!136 &4524705263232164749
