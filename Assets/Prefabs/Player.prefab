@@ -291,6 +291,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 5450688329181935740}
+    - target: {fileID: 7120590524962944226, guid: 4187ebb1039f4504f834ebd494d0194b,
+        type: 3}
+      propertyPath: airMovementFraction
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7120590524962944225, guid: 4187ebb1039f4504f834ebd494d0194b,
         type: 3}
       propertyPath: playerCanvas
@@ -463,6 +468,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5515266830157927168, guid: 27aa86332f8934783845c87b7aaf0121,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5450688329181935730}
     - target: {fileID: 6762052762463089734, guid: 27aa86332f8934783845c87b7aaf0121,
         type: 3}
       propertyPath: playerControl
@@ -473,14 +483,14 @@ PrefabInstance:
       propertyPath: cameraMovement
       value: 
       objectReference: {fileID: 5450688330257798854}
+    - target: {fileID: 7702490269034429156, guid: 27aa86332f8934783845c87b7aaf0121,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1076141703733157040}
     - target: {fileID: 775049083975382007, guid: 27aa86332f8934783845c87b7aaf0121,
         type: 3}
       propertyPath: playerControl
-      value: 
-      objectReference: {fileID: 5450688329181935741}
-    - target: {fileID: 775049085444755781, guid: 27aa86332f8934783845c87b7aaf0121,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5450688329181935741}
     - target: {fileID: 1259051757762536161, guid: 27aa86332f8934783845c87b7aaf0121,
@@ -493,16 +503,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5450688329181935741}
-    - target: {fileID: 7702490269034429156, guid: 27aa86332f8934783845c87b7aaf0121,
+    - target: {fileID: 775049085444755781, guid: 27aa86332f8934783845c87b7aaf0121,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1076141703733157040}
-    - target: {fileID: 5515266830157927168, guid: 27aa86332f8934783845c87b7aaf0121,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5450688329181935730}
+      objectReference: {fileID: 5450688329181935741}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27aa86332f8934783845c87b7aaf0121, type: 3}
 --- !u!224 &5450688331090623485 stripped

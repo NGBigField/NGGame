@@ -23,6 +23,7 @@ public class PlayerControl : MonoBehaviour
     public float force = 20.0f;
     private float jumpVelocity = 6.7f;
     private bool isGrounded;
+    public float airMovementFraction = 0.6f;
 
     private float fireAngle = 15f;
 
@@ -59,8 +60,17 @@ public class PlayerControl : MonoBehaviour
         forwardVec.y = 0;
         sideVec = Quaternion.AngleAxis(90, Vector3.up) * forwardVec;
 
-        rb.AddForce(forwardVec * force * Time.deltaTime * vertical, ForceMode.Impulse);
-        rb.AddForce(sideVec * force * Time.deltaTime * horizontal, ForceMode.Impulse);
+        if (isGrounded)
+        {
+            rb.AddForce(forwardVec * force * Time.deltaTime * vertical, ForceMode.Impulse);
+            rb.AddForce(sideVec * force * Time.deltaTime * horizontal, ForceMode.Impulse);
+        }
+        else //In Air
+        {
+            rb.AddForce(forwardVec *airMovementFraction* force * Time.deltaTime * vertical, ForceMode.Impulse);
+            rb.AddForce(sideVec *airMovementFraction* force * Time.deltaTime * horizontal, ForceMode.Impulse);
+        } 
+
     }
     public void Freeze()
     {
