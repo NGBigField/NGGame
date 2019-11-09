@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/PlayerInputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Misc/PlayerInputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -375,7 +375,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""id"": ""1bbb18bd-489e-4b3c-9b5f-371ec44d8486"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=0.1,y=0.1)"",
+                    ""processors"": ""ScaleVector2(x=0.01,y=0.01)"",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
