@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 7120590524962944225}
   - component: {fileID: 7497043535285517637}
   - component: {fileID: 5096918779149863816}
+  - component: {fileID: 3885270485272409988}
+  - component: {fileID: 692767401851099789}
   m_Layer: 0
   m_Name: Player Model
   m_TagString: Player
@@ -35,7 +37,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7120590524962944235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -588.13666, y: -356.74997, z: -3.4976997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2092, y: 1.2092, z: 1.2092}
   m_Children:
   - {fileID: 7046372653088930816}
@@ -274,8 +276,10 @@ MonoBehaviour:
   explosionPrefab: {fileID: 8700498035942592776, guid: 30d684d86e8909146ad562c5c4721389,
     type: 3}
   playerManager: {fileID: 7120590524962944237}
+  cameraMovement: {fileID: 0}
   kickVelocityFactor: 2
   force: 20
+  airMovementFraction: 0.6
 --- !u!114 &7120590524962944225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +324,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e92f1d6ccd746fcad0f7424a7d5a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3885270485272409988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7120590524962944235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4aa1801fe4ebc4246aaab4c4a888809f,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1e5eccb9-a70e-417e-a595-9c1b2bae58aa
+    m_ActionName: Player Controls/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e74b145d-54d5-451a-bd57-2cc5ccfd8fe8
+    m_ActionName: Player Controls/Fire[/Mouse/leftButton,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bb61f8c8-63b9-4de8-af8a-d131c39de005
+    m_ActionName: Player Controls/Alt Fire[/Mouse/rightButton,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c922a5cc-f292-4780-8abb-f38f5c1756ca
+    m_ActionName: Player Controls/Switch Weapon[/Keyboard/q,/Keyboard/e,/Mouse/scroll,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e8e8509-f39b-4136-91f7-8d8d13f41478
+    m_ActionName: Player Controls/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3bc4c70e-41f6-4c05-8669-ebc3b6b69fe1
+    m_ActionName: Player Controls/Look[/Mouse/delta,/XInputControllerWindows/rightStick]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player Controls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &692767401851099789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7120590524962944235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def34d9929938b740981f99ffbd6131c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerControl: {fileID: 7120590524962944226}
+  playerInput: {fileID: 3885270485272409988}
 --- !u!1001 &2394734342563517108
 PrefabInstance:
   m_ObjectHideFlags: 0
