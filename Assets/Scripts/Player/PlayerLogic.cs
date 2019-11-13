@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour {
+    public PlayerManager playerManager;
     public PlayerControl playerControl;
-    public PlayerCanvas playerCanvas;
+
     private float lastSpawnTime;
 
     private float spawnFreezeTime;
@@ -22,7 +23,7 @@ public class PlayerLogic : MonoBehaviour {
 
     void CheckDeathLogic () {
         // If the player fell off the screen
-        if (transform.position.y < -5) GameManager.Instance.Endgame (GetComponent<PlayerManager> ().score);
+        if (transform.position.y < -5) playerManager.KillPlayer ();
     }
 
     public void FreezePlayer (float freezeTime) {

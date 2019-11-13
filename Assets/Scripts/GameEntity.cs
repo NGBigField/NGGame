@@ -3,10 +3,11 @@
 /// <summary>
 /// This is a the basic object for all living entities in the game, creates a common infrastructure for common functions like spawn.
 /// </summary>
-public class GameEntity : MonoBehaviour
-{
+public class GameEntity : MonoBehaviour {
     public AudioSource audioSource;
     public Animator animator;
+
+    public Renderer renderer;
 
     public RuntimeAnimatorController spawnController;
 
@@ -14,30 +15,27 @@ public class GameEntity : MonoBehaviour
 
     public bool disableAutoSpawnAnimation = false;
 
-    protected virtual void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-        animator = GetComponent<Animator>();
+    protected virtual void Awake () {
+        audioSource = GetComponent<AudioSource> ();
+        animator = GetComponent<Animator> ();
+        renderer = GetComponent<Renderer> ();
         spawnController = GameRepository.Instance.spawnController;
         spawnSound = GameRepository.Instance.spawnSound;
     }
 
-    protected virtual void Start()
-    {
-        if (!disableAutoSpawnAnimation) PlaySpawnAnimation();
+    protected virtual void Start () {
+        if (!disableAutoSpawnAnimation) PlaySpawnAnimation ();
     }
 
-    public void PlaySpawnAnimation()
-    {
+    public void PlaySpawnAnimation () {
         animator.runtimeAnimatorController = spawnController;
-        audioSource.PlayOneShot(spawnSound);
+        audioSource.PlayOneShot (spawnSound);
     }
 
-    public void PlayDissolveAnimation()
-    {
+    public void PlayDissolveAnimation () {
         // TODO: Actually add dissolve animation
         animator.runtimeAnimatorController = spawnController;
-        audioSource.PlayOneShot(spawnSound);
+        audioSource.PlayOneShot (spawnSound);
     }
 
     /// <summary>
@@ -45,8 +43,7 @@ public class GameEntity : MonoBehaviour
     /// </summary>
     /// <param name="delay"></param>
     /// <param name="withDissolveAnimation"></param>
-    public virtual void Kill(float delay = 0, bool withDissolveAnimation = true)
-    {
+    public virtual void Kill (float delay = 0, bool withDissolveAnimation = true) {
 
     }
 }

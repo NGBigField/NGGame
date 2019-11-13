@@ -32,15 +32,21 @@ public class GameManager : MonoBehaviour {
             RestartGame ();
     }
 
-    public void Endgame (float score) {
-        gameOverTime = Time.time;
-        isGameOver = true;
-
-        // Kill all of the players in the arena
+    /// <summary>
+    /// Checks if the game has ended, as if all players are dead.
+    /// </summary>
+    public void CheckForGameEnd () {
         foreach (var player in GameObject.FindGameObjectsWithTag ("Player")) {
             var playerManager = player.GetComponent<PlayerManager> ();
-            playerManager.KillPlayer ();
+            if (!playerManager.isDead) return;
         }
+
+        Endgame ();
+    }
+
+    public void Endgame () {
+        gameOverTime = Time.time;
+        isGameOver = true;
 
         /*Call the restart Method of the EnemyArea so that enemies won't respawn during "Game Lost" screen */
         foreach (var EnemyArea in GameObject.FindGameObjectsWithTag ("EnemyArea"))
