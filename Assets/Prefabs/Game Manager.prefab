@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8201934742733078269}
-  m_LocalRotation: {x: -0.11556605, y: 0.66925454, z: -0.10650007, w: -0.7262235}
+  m_LocalRotation: {x: 0.11556776, y: -0.6692573, z: 0.10650288, w: 0.7262203}
   m_LocalPosition: {x: 90.99438, y: 26.898642, z: -9.624952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 18.084002, y: -85.325005, z: 0}
 --- !u!114 &8201934742733078267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameOver: 0
   isGamePaused: 0
+  playerInputManager: {fileID: 5198706707138117445}
 --- !u!114 &8201934742733078266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,12 +83,13 @@ MonoBehaviour:
     type: 3}
   explosionPowerupPrefab: {fileID: 8344410936663697301, guid: 405df3b0d3b8e62498a6c3e69a0fe715,
     type: 3}
-  explosionPowerupEffectPrefab: {fileID: 0}
+  explosionPowerupEffectPrefab: {fileID: 8700498035942592776, guid: 30d684d86e8909146ad562c5c4721389,
+    type: 3}
   plasmaBulletPrefab: {fileID: 2296495422454914438, guid: 57c9ca27042c04c1ba26d5b4a2f19f08,
     type: 3}
   simpleWeaponPrefab: {fileID: 537597356750841749, guid: 13406ca2a03c6d2429ea56ffa3deb330,
     type: 3}
-  emptyClipSound: {fileID: 0}
+  emptyClipSound: {fileID: 8300000, guid: f32a37d07743f4995ab35589cd46c4e3, type: 3}
   blinkSound: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
 --- !u!114 &5198706707138117445
 MonoBehaviour:

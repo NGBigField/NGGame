@@ -75,6 +75,10 @@ public class PlayerManager : GameEntity {
         GameManager.Instance.PauseGameToggle ();
     }
 
+    public void QuitGame () {
+        GameManager.Instance.QuitGame ();
+    }
+
     public bool PickPowerup (System.Type itemType) {
         return inventory.AddItem (itemType);
     }

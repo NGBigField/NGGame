@@ -60,18 +60,6 @@ public class CameraMovement : MonoBehaviour {
         transform.LookAt (playerTransform.position);
     }
 
-    void LateUpdate () {
-        if (gyroEnabled) return;
-
-        // If it's a touch pointer movement and not a mouse movement, ignore it
-        if (Input.touchSupported && Input.touchCount > 0) return;
-
-        // If it's a normal mouse or joystick movement, accept it and move accordingly
-        var axisX = Input.GetAxis ("Mouse X");
-        var axisY = Input.GetAxis ("Mouse Y");
-        MoveCamera (axisX, axisY);
-    }
-
     private bool EnableGyro () {
         if (SystemInfo.supportsGyroscope) {
             cameraContainer = new GameObject ("Camera Container");
