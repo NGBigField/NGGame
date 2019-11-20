@@ -91,6 +91,12 @@ MonoBehaviour:
     type: 3}
   emptyClipSound: {fileID: 8300000, guid: f32a37d07743f4995ab35589cd46c4e3, type: 3}
   blinkSound: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
+  gravityWeaponMissSound: {fileID: 8300000, guid: a8ec8d024f37545a999fdc24d60f76ce,
+    type: 3}
+  gravityWeaponHoldingSound: {fileID: 8300000, guid: 859c5cf46eab74c67845871efd7938f9,
+    type: 3}
+  gravityWeaponShootingSound: {fileID: 8300000, guid: 73d0d158174594e8cabe0fa1ad4834a1,
+    type: 3}
 --- !u!114 &5198706707138117445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
   m_MaxPlayerCount: -1
-  m_AllowJoining: 1
+  m_AllowJoining: 0
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:

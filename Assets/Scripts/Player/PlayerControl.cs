@@ -79,8 +79,11 @@ public class PlayerControl : MonoBehaviour {
     }
 
     public void UpdateFireCrosshair () {
-        var playerPosition = this.transform.position;
-        fireVec = Quaternion.AngleAxis (fireAngle, -sideVec) * (cameraMovement.transform.forward); //update this no-matter if fires, so other scripts can use it
+        fireVec = getFireVector (); //update this no-matter if fires, so other scripts can use it
+    }
+
+    public Vector3 getFireVector () {
+        return Quaternion.AngleAxis (fireAngle, -sideVec) * (cameraMovement.transform.forward);
     }
 
     public void FireDown (bool isTouch = false) {

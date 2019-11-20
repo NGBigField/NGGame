@@ -63,6 +63,5 @@ public class PlayerInputLogic : MonoBehaviour {
 
         // TODO: Check if we need to take the Time.deltaTime into consideration here?
         playerControl.cameraMovement.MoveCamera (lookAxis.x, lookAxis.y);
-
     }
 }

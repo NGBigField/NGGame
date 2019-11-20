@@ -25,6 +25,12 @@ public class GameRepository : MonoBehaviour {
 
     public AudioClip blinkSound;
 
+    public AudioClip gravityWeaponMissSound;
+
+    public AudioClip gravityWeaponHoldingSound;
+
+    public AudioClip gravityWeaponShootingSound;
+
     private void Awake () {
         Instance = this;
     }

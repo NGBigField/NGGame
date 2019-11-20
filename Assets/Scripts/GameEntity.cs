@@ -7,7 +7,7 @@ public class GameEntity : MonoBehaviour {
     public AudioSource audioSource;
     public Animator animator;
 
-    public Renderer renderer;
+    public new Renderer renderer;
 
     public RuntimeAnimatorController spawnController;
 

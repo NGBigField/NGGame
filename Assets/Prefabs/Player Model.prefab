@@ -250,7 +250,6 @@ MonoBehaviour:
   gameoverScreen: {fileID: 0}
   inventory: {fileID: 7120590524962944225}
   playerCanvas: {fileID: 0}
-  playerRenderer: {fileID: 7120590524962944233}
   weaponControl: {fileID: 2853855404068409391}
   health: 0
   score: 0

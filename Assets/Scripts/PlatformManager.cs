@@ -40,11 +40,17 @@ public class PlatformManager : MonoBehaviour {
 
         // Disable post processing as it it difficult for the processor
         var postProcess = GameObject.Find ("Post Process Volume");
-        var postProcessPlatformModifications = postProcess.GetComponent<PostProcessPlatformModifications> ();
-        postProcessPlatformModifications.DoPlatformModifications (platform);
+
+        if (postProcess) {
+            var postProcessPlatformModifications = postProcess.GetComponent<PostProcessPlatformModifications> ();
+            postProcessPlatformModifications.DoPlatformModifications (platform);
+        }
 
         // Show dust particles only on destop
         var dustParticles = GameObject.Find ("Dust Particles");
-        dustParticles.SetActive (runningPlatform == RunningPlatformType.Desktop);
+
+        if (dustParticles) {
+            dustParticles.SetActive (runningPlatform == RunningPlatformType.Desktop);
+        }
     }
 }
