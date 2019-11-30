@@ -26,6 +26,9 @@ public class PlayerInputLogic : MonoBehaviour {
     }
 
     private void OnFire (InputValue value) {
+        // When pressing on fire when the game is paused, quit the game
+        if (GameManager.Instance.isGamePaused) playerControl.playerManager.QuitGame ();
+
         if (value.isPressed) playerControl.FireDown ();
         else playerControl.FireUp ();
     }
@@ -33,7 +36,7 @@ public class PlayerInputLogic : MonoBehaviour {
     private void OnSwitchWeapon (InputValue value) {
         var inputValue = value.Get<Vector2> ().y;
         if (inputValue > 0) playerControl.NextWeapon ();
-        else playerControl.PreviousWeapon ();
+        else if (inputValue < 0) playerControl.PreviousWeapon ();
     }
 
     private void OnLook (InputValue value) {
