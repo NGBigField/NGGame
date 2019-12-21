@@ -13,6 +13,8 @@ public class GameRepository : MonoBehaviour {
 
     public GameObject enemyPrefab;
 
+    public GameObject enemyIndicatorPrefab;
+
     public GameObject explosionPowerupPrefab;
 
     public GameObject explosionPowerupEffectPrefab;

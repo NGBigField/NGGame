@@ -81,6 +81,8 @@ MonoBehaviour:
     type: 3}
   enemyPrefab: {fileID: 356653835276615647, guid: 01bd43cba6413ca448d37c7d42d3be01,
     type: 3}
+  enemyIndicatorPrefab: {fileID: 7076495978086668025, guid: 1f66395d2d884084ab653552acf852aa,
+    type: 3}
   explosionPowerupPrefab: {fileID: 8344410936663697301, guid: 405df3b0d3b8e62498a6c3e69a0fe715,
     type: 3}
   explosionPowerupEffectPrefab: {fileID: 8700498035942592776, guid: 30d684d86e8909146ad562c5c4721389,

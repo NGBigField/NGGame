@@ -9,6 +9,7 @@ public class PlayerCanvas : MonoBehaviour {
     public GameObject pauseMenu;
     public Image damageBlinkImage;
     public CanvasGroup crosshair;
+    public GameObject enemyIndicators;
 
     public Text scoreText;
 
@@ -70,6 +71,20 @@ public class PlayerCanvas : MonoBehaviour {
 
     public void HidePauseMenu () {
         pauseMenu.SetActive (false);
+    }
+
+    public EnemyIndicator CreateEnemyIndicator (GameObject enemy) {
+        // Instantiate the enemy indicator prefab
+        var enemyIndicatorPrefab = Instantiate (GameRepository.Instance.enemyIndicatorPrefab);
+
+        // Set it under the enemy indicators
+        enemyIndicatorPrefab.transform.SetParent (enemyIndicators.transform);
+
+        var enemyIndicator = enemyIndicatorPrefab.GetComponent<EnemyIndicator> ();
+        // Set the enemy
+        enemyIndicator.enemy = enemy;
+
+        return enemyIndicator;
     }
 
     private IEnumerator DamageBlinkScreen () {
